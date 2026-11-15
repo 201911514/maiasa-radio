@@ -1,0 +1,24 @@
+{
+ "note": "読み辞書。forms には台本や聞き取り結果に出てくる書き方を並べる。誤読が見つかって直したら、ここに追加して同じ間違いを繰り返さないようにする。",
+ "entries": [
+  {"reading": "クロード", "forms": ["Claude", "クロード"]},
+  {"reading": "アンソロピック", "forms": ["Anthropic", "アンソロピック"]},
+  {"reading": "オープンエーアイ", "forms": ["OpenAI", "オープンエーアイ", "オープンAI"]},
+  {"reading": "フラッシュプルーフ", "forms": ["FlashProve", "フラッシュプルーフ"]},
+  {"reading": "グーグル", "forms": ["Google", "グーグル"]},
+  {"reading": "ジェミニ", "forms": ["Gemini", "ジェミニ"]},
+  {"reading": "エーアイ", "forms": ["AI"]},
+  {"reading": "シービーエス", "forms": ["CBS", "シービーエス"]},
+  {"reading": "シーエヌビーシー", "forms": ["CNBC", "シーエヌビーシー"]},
+  {"reading": "テッククランチ", "forms": ["TechCrunch", "テッククランチ"]},
+  {"reading": "チャットジーピーティー", "forms": ["ChatGPT", "チャットジーピーティー"]},
+  {"reading": "マイクロソフト", "forms": ["Microsoft", "マイクロソフト"]},
+  {"reading": "エヌビディア", "forms": ["NVIDIA", "Nvidia", "エヌビディア"]},
+  {"reading": "メタ", "forms": ["Meta"]},
+  {"reading": "ユーチューブ", "forms": ["YouTube", "ユーチューブ"]},
+  {"reading": "アイピーオー", "forms": ["IPO"]},
+  {"reading": "ジーディーピー", "forms": ["GDP"]},
+  {"reading": "エフアールビー", "forms": ["FRB"]},
+  {"reading": "ダブリューエスジェー", "forms": ["WSJ"]}
+ ]
+}

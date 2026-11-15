@@ -1,0 +1,793 @@
+<title>毎朝5分ラジオ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
+<style>
+/* Layout: a broadcast stage (slides + two hosts + subtitles) on top, then feedback beside the taste profile, the week's schedule, and how it runs. */
+:root{
+  --bg:#F2F4F8; --surface:#FFFFFF; --sunken:#E8ECF3; --ink:#161E30; --muted:#566079; --line:#D7DDE8;
+  --accent:#E8A317; --accent-ink:#1E1503; --accent-text:#8F5D00; --accent-soft:#FBEFD2;
+  --good:#1D7F45; --good-soft:#DDF2E4; --bad:#B23B35; --bad-soft:#F7E1DF;
+  --cat-ai:#14857A; --cat-eco:#B4551A; --cat-world:#3360BF;
+  --stage:#121D38; --stage-2:#1D2E57; --stage-ink:#F3F6FC; --stage-muted:#AAB6CF; --stage-line:rgba(255,255,255,.14); --stage-card:rgba(255,255,255,.07);
+  --dem:#5B8FEA; --rep:#E2605A;
+  --hal:#22A598; --hal-hair:#2B2F3B; --sora:#F2B01E; --sora-hair:#6A3C25;
+  --skin:#F6D5B9; --skin-shade:#E6B998; --cheek:#F1A39A; --eye:#1D2333; --lip:#8C3A33;
+  --shadow:0 1px 2px rgba(22,30,48,.05),0 8px 24px rgba(22,30,48,.08);
+  --f-display:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Yu Gothic",sans-serif;
+  --f-body:"BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1220; --surface:#151C2D; --sunken:#1C2438; --ink:#E6EAF3; --muted:#98A3BA; --line:#273049;
+    --accent:#F0B43C; --accent-ink:#1E1503; --accent-text:#F0B43C; --accent-soft:#3A2C0E;
+    --good:#4CBD7B; --good-soft:#123221; --bad:#EC7A70; --bad-soft:#3A1916;
+    --cat-ai:#3CC0B3; --cat-eco:#F08A4B; --cat-world:#7EA3F0;
+    --stage:#0B1328; --stage-2:#17264D;
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1220; --surface:#151C2D; --sunken:#1C2438; --ink:#E6EAF3; --muted:#98A3BA; --line:#273049;
+  --accent:#F0B43C; --accent-ink:#1E1503; --accent-text:#F0B43C; --accent-soft:#3A2C0E;
+  --good:#4CBD7B; --good-soft:#123221; --bad:#EC7A70; --bad-soft:#3A1916;
+  --cat-ai:#3CC0B3; --cat-eco:#F08A4B; --cat-world:#7EA3F0;
+  --stage:#0B1328; --stage-2:#17264D;
+  --shadow:0 1px 2px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+a{color:var(--accent-text)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+h1,h2,h3,h4{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.35}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 64px;display:flex;flex-direction:column;gap:36px}
+
+.top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:16px 28px;align-items:end}
+@media (max-width:820px){.top{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{font-size:.78rem;letter-spacing:.08em;color:var(--accent-text);font-weight:700;margin:0 0 4px}
+h1{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:900;letter-spacing:.02em}
+.lede{margin:6px 0 0;color:var(--muted)}
+.demo-note{margin:0;font-size:.82rem;line-height:1.7;color:var(--muted);background:var(--sunken);border-radius:10px;padding:12px 14px}
+.demo-note strong{display:inline-block;background:var(--ink);color:var(--bg);font-size:.72rem;padding:0 8px;border-radius:999px;margin-right:6px;letter-spacing:.05em}
+
+/* ---------- stage ---------- */
+.player{display:flex;flex-direction:column;gap:12px}
+.ep-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.ep-head h2{font-size:1.3rem}
+.ep-head span{font-size:.85rem;color:var(--muted)}
+.stage{position:relative;container-type:inline-size;aspect-ratio:16/9;max-width:100%;border-radius:18px;overflow:hidden;color:var(--stage-ink);
+  background:radial-gradient(110% 85% at 94% -18%,rgba(242,169,0,.38),rgba(242,169,0,0) 52%),linear-gradient(180deg,var(--stage-2),var(--stage) 72%);box-shadow:var(--shadow)}
+@media (max-width:600px){.stage{aspect-ratio:3/4}}
+.stage::after{content:"";position:absolute;left:0;right:0;bottom:0;height:26%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.05));pointer-events:none}
+.onair{position:absolute;top:4.5%;right:4%;font-size:1.45cqw;letter-spacing:.14em;font-weight:700;display:flex;align-items:center;gap:.5em;color:var(--stage-muted)}
+.onair i{display:block;width:.75em;height:.75em;border-radius:50%;background:#FF5A4F;opacity:.3}
+.stage.playing .onair{color:var(--stage-ink)}
+.stage.playing .onair i{opacity:1;animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.35}}
+.slide{position:absolute;top:7%;left:6%;right:6%;bottom:35%;display:flex;flex-direction:column;gap:2cqw;transition:opacity .25s}
+.slide.fade{opacity:0}
+.s-eyebrow{font-size:1.55cqw;letter-spacing:.1em;color:var(--accent);font-weight:700}
+.s-title{font-family:var(--f-display);font-weight:900;font-size:3.5cqw;line-height:1.3;text-wrap:balance;max-width:84%}
+.s-points{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1cqw;font-size:2.15cqw;line-height:1.5}
+.s-points li{display:flex;gap:1.1cqw;align-items:baseline}
+.s-points li::before{content:"";flex:none;width:1cqw;height:1cqw;border-radius:50%;background:var(--accent);transform:translateY(-.12em)}
+.s-src{margin-top:auto;font-size:1.3cqw;color:var(--stage-muted)}
+.s-agenda{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1.3cqw 2cqw;font-size:2cqw;max-width:88%}
+.s-agenda li{display:flex;gap:1.3cqw;align-items:center;background:var(--stage-card);border:1px solid var(--stage-line);border-radius:1.2cqw;padding:1.1cqw 1.6cqw;line-height:1.35}
+.s-agenda b{font-family:var(--f-display);font-size:2.6cqw;color:var(--accent);min-width:2.2cqw;text-align:center}
+.s-agenda small{display:block;font-size:1.3cqw;color:var(--stage-muted)}
+.s-big .num{font-family:var(--f-display);font-weight:900;font-size:7cqw;line-height:1;color:var(--accent)}
+.s-big .num small{font-size:2.4cqw;color:var(--stage-ink);margin-left:1cqw;font-weight:700}
+.s-big .lbl{font-size:1.8cqw;color:var(--stage-muted);margin-top:.8cqw}
+.meter{height:1.5cqw;border-radius:1cqw;background:var(--stage-line);overflow:hidden;max-width:62%;margin-top:1.6cqw}
+.meter i{display:block;height:100%;width:55%;background:var(--accent);border-radius:1cqw}
+.meter-l{font-size:1.75cqw;margin-top:.8cqw}
+.s-boxes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.6cqw;max-width:88%}
+.s-box{border-radius:1.3cqw;padding:1.3cqw 1.5cqw;background:var(--stage-card);border:1px solid var(--stage-line);border-top:.55cqw solid var(--c)}
+.s-box .k{font-size:1.45cqw;color:var(--stage-muted)}
+.s-box .v{font-family:var(--f-display);font-weight:700;font-size:2cqw;line-height:1.35}
+.s-cap{font-size:2cqw}
+.s-cap b{color:var(--accent)}
+.s-quiz{font-family:var(--f-display);font-weight:700;font-size:2.6cqw;background:var(--stage-card);border:1px solid var(--stage-line);border-radius:1.4cqw;padding:1.6cqw 2cqw;max-width:78%}
+.s-next{font-size:2cqw;color:var(--stage-muted)}
+.s-next b{color:var(--accent)}
+
+.char{position:absolute;bottom:0;width:15%;transition:transform .3s ease,filter .3s ease}
+.char.hal{left:2.5%}
+.char.sora{right:2.5%}
+.char svg{display:block;width:100%;height:auto}
+.char .nm{position:absolute;left:50%;bottom:1.1cqw;transform:translateX(-50%);font-size:1.25cqw;font-weight:700;background:rgba(6,12,28,.7);color:var(--stage-ink);padding:.15em .8em;border-radius:999px;white-space:nowrap}
+.char.talking{transform:translateY(-.7cqw)}
+.char.talking svg{filter:drop-shadow(0 0 1.3cqw rgba(242,176,30,.6))}
+.mouth{transform-box:fill-box;transform-origin:center}
+.char.talking .mouth{animation:talk .17s ease-in-out infinite alternate}
+@keyframes talk{to{transform:scaleY(3.2)}}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 5.2s infinite}
+.char.sora .eye{animation-delay:1.9s}
+@keyframes blink{0%,95%,100%{transform:scaleY(1)}97%{transform:scaleY(.12)}}
+.sub{position:absolute;left:19.5%;right:19.5%;bottom:4.5%;background:rgba(6,12,28,.8);border:1px solid var(--stage-line);border-radius:1.3cqw;padding:1.1cqw 1.7cqw;font-size:2cqw;line-height:1.6;min-height:calc(3.2em + 2.2cqw)}
+.who{display:inline-block;font-size:1.4cqw;font-weight:700;padding:0 .75em;border-radius:999px;margin-right:.6em;vertical-align:.1em;color:#0F1628;line-height:1.7}
+.who.hal{background:var(--hal)}
+.who.sora{background:var(--sora)}
+
+@container (max-width:560px){
+  .onair{font-size:2.8cqw}
+  .slide{top:6%;left:5.5%;right:5.5%;bottom:48%;gap:3cqw}
+  .s-eyebrow{font-size:3.1cqw}
+  .s-title{font-size:6cqw;max-width:100%}
+  .s-points{font-size:3.9cqw;gap:1.6cqw}
+  .s-points li::before{width:2cqw;height:2cqw}
+  .s-src{font-size:2.7cqw}
+  .s-agenda{grid-template-columns:1fr;font-size:3.7cqw;gap:1.6cqw;max-width:100%}
+  .s-agenda li{padding:1.4cqw 2.4cqw;border-radius:2cqw}
+  .s-agenda b{font-size:4.4cqw}
+  .s-agenda small{display:none}
+  .s-big .num{font-size:12cqw}
+  .s-big .num small{font-size:4.2cqw}
+  .s-big .lbl{font-size:3.5cqw}
+  .meter{height:2.8cqw;max-width:100%}
+  .meter-l{font-size:3.4cqw}
+  .s-boxes{gap:2cqw;max-width:100%}
+  .s-box{padding:2cqw;border-top-width:1.1cqw;border-radius:2cqw}
+  .s-box .k{font-size:2.8cqw}
+  .s-box .v{font-size:3.3cqw}
+  .s-cap{font-size:3.6cqw}
+  .s-quiz{font-size:4.6cqw;max-width:100%;padding:3cqw}
+  .s-next{font-size:3.6cqw}
+  .char{width:23%}
+  .char .nm{font-size:2.6cqw;bottom:2cqw}
+  .sub{left:4%;right:4%;bottom:auto;top:54%;font-size:3.8cqw;padding:2cqw 3cqw;border-radius:2.4cqw}
+  .who{font-size:2.8cqw}
+}
+
+/* ---------- controls ---------- */
+.controls{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.playbtn{flex:none;width:54px;height:54px;border-radius:50%;background:var(--accent);color:var(--accent-ink);border:0;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 14px rgba(232,163,23,.35)}
+.iconbtn{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;padding:0}
+.timeline{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:6px}
+.track{position:relative;height:8px;background:var(--sunken);border-radius:4px;cursor:pointer}
+.track .fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);border-radius:4px}
+.track .cm{position:absolute;top:0;bottom:0;width:2px;background:var(--bg)}
+.tmeta{display:flex;justify-content:space-between;gap:8px;font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.opts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;background:var(--sunken);border-radius:999px;padding:3px}
+.seg button{font:inherit;font-size:.8rem;border:0;background:transparent;color:var(--muted);padding:3px 12px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);font-weight:700;box-shadow:0 1px 2px rgba(0,0,0,.1)}
+.sel{font:inherit;font-size:.8rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
+.chapters{display:flex;flex-wrap:wrap;gap:6px}
+.chapters button{font:inherit;font-size:.8rem;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:3px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chapters .t{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.72rem}
+.chapters button[aria-current="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chapters button[aria-current="true"] .t{color:inherit;opacity:.7}
+.voice-note{font-size:.8rem;color:var(--muted);margin:0;display:flex;gap:8px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.voice-note svg{flex:none;margin-top:3px;color:var(--accent-text)}
+.voice-note b{color:var(--ink)}
+.ep-head .badge{font-size:.72rem;font-weight:700;padding:0 10px;border-radius:999px;background:var(--good-soft);color:var(--good);line-height:1.9}
+
+/* ---------- publish check ---------- */
+.steps{list-style:none;margin:0 0 20px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;counter-reset:s}
+@media (max-width:820px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.steps li{counter-increment:s;background:var(--sunken);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;font-size:.8rem;color:var(--muted);line-height:1.6}
+.steps li b{font-family:var(--f-display);font-size:.95rem;color:var(--ink);display:flex;align-items:center;gap:.5em}
+.steps li b::before{content:counter(s);display:inline-grid;place-items:center;width:1.5em;height:1.5em;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:.78rem}
+.chk-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+@media (max-width:820px){.chk-grid{grid-template-columns:minmax(0,1fr)}}
+.chk-grid h3{font-size:.98rem;margin-bottom:4px;display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center}
+.tag{font-family:var(--f-body);font-size:.68rem;font-weight:700;padding:0 8px;border-radius:999px;line-height:1.8}
+.tag.real{background:var(--good-soft);color:var(--good)}
+.tag.test{background:var(--sunken);color:var(--muted);border:1px solid var(--line)}
+.yomi-groups{display:flex;flex-direction:column;gap:14px}
+.yg h4{font-family:var(--f-body);font-size:.76rem;color:var(--muted);font-weight:700;margin:0 0 6px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:8px;padding:1px 8px;font-size:.8rem;background:var(--surface)}
+.chips .w{font-weight:700}
+.chips .w::after{content:"→";margin-left:6px;color:var(--muted);font-weight:400}
+.chips .n{font-size:.68rem;color:var(--muted)}
+.cases{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.case{border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:4px}
+.cl{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:.74rem}
+.vd{font-weight:700;padding:0 8px;border-radius:999px;line-height:1.8}
+.vd.retry{background:var(--accent-soft);color:var(--accent-text)}
+.vd.hold{background:var(--bad-soft);color:var(--bad)}
+.why{color:var(--muted)}
+.case p{margin:0;font-size:.84rem;line-height:1.6}
+.case .miss{background:var(--bad-soft);color:var(--bad);border-radius:4px;padding:0 4px;font-weight:700}
+.case .note{font-size:.76rem;color:var(--muted)}
+.verdict{margin:12px 0 0;font-size:.84rem}
+.verdict b{color:var(--bad)}
+.criteria{margin:18px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.criteria b{color:var(--ink);margin-right:.8em}
+.script small.tts{display:block;font-size:.76rem;color:var(--muted);margin-top:2px}
+
+/* ---------- panels ---------- */
+.grid2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:820px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px;min-width:0}
+.panel h2{font-size:1.1rem;margin-bottom:4px}
+.small{font-size:.8rem;color:var(--muted);margin:0 0 10px}
+.stack{display:flex;flex-direction:column;gap:20px;min-width:0}
+.fbrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.fbrow:first-of-type{border-top:0}
+.fbrow .ttl{font-weight:700;font-size:.9rem;line-height:1.5}
+.fbrow .tg{font-size:.72rem;color:var(--muted)}
+.fbbtns{display:flex;gap:6px}
+.fb{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--muted);display:grid;place-items:center;cursor:pointer;padding:0}
+.fb:hover{color:var(--ink)}
+.fb.up[aria-pressed="true"]{background:var(--good-soft);border-color:var(--good);color:var(--good)}
+.fb.down[aria-pressed="true"]{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.fbextra{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.chipbtn{font:inherit;font-size:.74rem;border:1px dashed var(--line);background:transparent;color:var(--muted);border-radius:999px;padding:2px 10px;cursor:pointer}
+.chipbtn[aria-pressed="true"]{border-style:solid;border-color:var(--accent-text);color:var(--accent-text);background:var(--accent-soft);font-weight:700}
+.quiz{margin-top:4px}
+.quiz-q{font-weight:700;margin:0 0 10px}
+.quiz-opts{display:flex;flex-direction:column;gap:8px}
+.quiz-opts button{font:inherit;text-align:left;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer}
+.quiz-opts button.correct{border-color:var(--good);background:var(--good-soft)}
+.quiz-opts button.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.quiz-res{font-size:.85rem;min-height:1.7em;margin:8px 0 0}
+.taste{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.taste li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;font-size:.82rem}
+.taste .lv{font-size:.72rem;color:var(--muted)}
+.taste .lv.pos{color:var(--good);font-weight:700}
+.taste .lv.neg{color:var(--bad);font-weight:700}
+.bar{grid-column:1/-1;height:6px;border-radius:3px;background:var(--sunken);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .4s}
+.bar i.neg{background:var(--bad)}
+.plan{margin:14px 0 0;padding:12px 14px;background:var(--sunken);border-radius:10px}
+.plan h3{font-size:.88rem;margin-bottom:6px}
+.plan ul{margin:0;padding-left:1.1em;font-size:.82rem;display:flex;flex-direction:column;gap:4px}
+.plan .hint{font-size:.8rem;color:var(--muted);margin:0 0 6px}
+.linkbtn{font:inherit;font-size:.76rem;background:none;border:0;color:var(--accent-text);cursor:pointer;padding:0;text-decoration:underline;margin-top:10px}
+
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 14px;margin-bottom:12px}
+.sec-head h2{font-size:1.2rem}
+.sec-head p{margin:0;font-size:.82rem;color:var(--muted)}
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+@media (max-width:860px){.week{grid-template-columns:repeat(2,minmax(0,1fr))} .day.off{grid-column:1/-1}}
+.day{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.day.today{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)}
+.day.off{background:transparent;border-style:dashed}
+.dhead{display:flex;justify-content:space-between;align-items:baseline;font-size:.76rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.dhead b{font-family:var(--f-display);font-size:1.1rem;color:var(--ink)}
+.theme{align-self:flex-start;font-size:.7rem;font-weight:700;padding:0 8px;border-radius:999px;border:1px solid currentColor;line-height:1.7}
+.theme.ai{color:var(--cat-ai)} .theme.eco{color:var(--cat-eco)} .theme.world{color:var(--cat-world)} .theme.sum{color:var(--accent-text)} .theme.off{color:var(--muted)}
+.dtitle{font-size:.8rem;line-height:1.5}
+.dsub{font-size:.72rem;color:var(--muted)}
+.dstatus{margin-top:auto;font-size:.72rem;color:var(--muted)}
+.today .dstatus{color:var(--accent-text);font-weight:700}
+
+details.script summary{cursor:pointer;font-weight:700;font-family:var(--f-display);font-size:1rem}
+.script h4{font-size:.88rem;margin:16px 0 6px;color:var(--accent-text)}
+.script p{margin:0 0 6px;font-size:.86rem;display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:8px}
+.script p b{font-weight:700}
+.script p b.hal{color:var(--cat-ai)} .script p b.sora{color:var(--accent-text)}
+.srcs{margin:14px 0 0;padding-left:1.1em;font-size:.82rem;display:flex;flex-direction:column;gap:4px}
+.flow{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;font-size:.84rem}
+.costs{width:100%;border-collapse:collapse;margin-top:14px;font-size:.82rem}
+.costs td{padding:7px 0;border-top:1px solid var(--line);vertical-align:top}
+.costs td:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;padding-left:12px}
+.costs td[colspan]{white-space:normal;text-align:left;padding-left:0}
+.costs tr.total td{font-weight:700;font-size:.95rem}
+.costs small{color:var(--muted)}
+
+.toast{position:fixed;z-index:60;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,16px);max-width:calc(100% - 32px);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:.85rem;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">平日の朝に5分</p>
+      <h1>毎朝5分ラジオ</h1>
+      <p class="lede">AI・経済・世界のニュースを、日替わりで。解説のハルと聞き役のソラが、掛け合いでお届けします。</p>
+    </div>
+    <p class="demo-note"><strong>デモ版</strong>再生できるのは今日（11月5日・木）の回だけです。内容は11月5日時点の実際の報道をもとに作り、出典を付けています。月〜水の履歴と、好みの初期値はサンプルです。</p>
+  </header>
+
+  <section class="player" aria-labelledby="ep-h">
+    <div class="ep-head"><h2 id="ep-h">11月5日（木） AIの回</h2><span>＋世界の1分ニュース ・ 約<span id="ep-min">5</span>分</span><span class="badge">事前チェック済み</span></div>
+    <div class="stage" id="stage">
+      <div class="onair"><i></i>ON AIR</div>
+      <div class="slide" id="slide"></div>
+      <div class="char hal" id="hal">
+        <svg viewBox="0 0 120 150" aria-hidden="true">
+          <path d="M8 150c0-34 22-50 52-50s52 16 52 50z" fill="var(--hal)"/>
+          <path d="M47 101l13 14 13-14" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/>
+          <rect x="51" y="84" width="18" height="20" rx="7" fill="var(--skin-shade)"/>
+          <circle cx="60" cy="58" r="33" fill="var(--skin)"/>
+          <path d="M27 58c-3-26 13-40 34-40 22 0 37 14 33 40-5-11-14-17-26-17-9 0-15 3-22 1-6-2-10-5-13-7-3 6-5 14-6 23z" fill="var(--hal-hair)"/>
+          <g fill="none" stroke="var(--hal-hair)" stroke-width="2.4"><circle cx="47" cy="62" r="8.5"/><circle cx="73" cy="62" r="8.5"/><path d="M55.5 62h9"/></g>
+          <ellipse class="eye" cx="47" cy="62" rx="2.8" ry="3.4" fill="var(--eye)"/>
+          <ellipse class="eye" cx="73" cy="62" rx="2.8" ry="3.4" fill="var(--eye)"/>
+          <circle cx="37" cy="76" r="4" fill="var(--cheek)" opacity=".55"/>
+          <circle cx="83" cy="76" r="4" fill="var(--cheek)" opacity=".55"/>
+          <ellipse class="mouth" cx="60" cy="79" rx="5.5" ry="1.7" fill="var(--lip)"/>
+        </svg>
+        <span class="nm">ハル（解説）</span>
+      </div>
+      <div class="char sora" id="sora">
+        <svg viewBox="0 0 120 150" aria-hidden="true">
+          <path d="M8 150c0-34 22-50 52-50s52 16 52 50z" fill="var(--sora)"/>
+          <path d="M46 101q14 12 28 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+          <path d="M25 58c-5 18-1 32 6 38l4-32zM95 58c5 18 1 32-6 38l-4-32z" fill="var(--sora-hair)"/>
+          <rect x="51" y="84" width="18" height="20" rx="7" fill="var(--skin-shade)"/>
+          <circle cx="60" cy="58" r="33" fill="var(--skin)"/>
+          <circle cx="60" cy="20" r="11" fill="var(--sora-hair)"/>
+          <path d="M26 62c-4-26 12-41 34-41s38 15 34 41c-3-9-8-15-14-19-6 7-17 11-30 11-9 0-15-2-19-5-2 4-4 8-5 13z" fill="var(--sora-hair)"/>
+          <ellipse class="eye" cx="48" cy="63" rx="3.3" ry="4.2" fill="var(--eye)"/>
+          <ellipse class="eye" cx="72" cy="63" rx="3.3" ry="4.2" fill="var(--eye)"/>
+          <circle cx="38" cy="76" r="4.2" fill="var(--cheek)" opacity=".6"/>
+          <circle cx="82" cy="76" r="4.2" fill="var(--cheek)" opacity=".6"/>
+          <ellipse class="mouth" cx="60" cy="79" rx="5" ry="1.8" fill="var(--lip)"/>
+        </svg>
+        <span class="nm">ソラ（聞き役）</span>
+      </div>
+      <p class="sub" id="sub" aria-live="polite"></p>
+    </div>
+
+    <div class="controls">
+      <button type="button" class="iconbtn" id="prev" aria-label="前のコーナーへ"></button>
+      <button type="button" class="playbtn" id="play" aria-label="再生"></button>
+      <button type="button" class="iconbtn" id="next" aria-label="次のコーナーへ"></button>
+      <div class="timeline">
+        <div class="track" id="track" role="slider" tabindex="0" aria-label="再生位置" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="fill" id="fill"></span></div>
+        <div class="tmeta"><span id="tnow">0:00</span><span id="tchap"></span><span id="ttotal">0:00</span></div>
+      </div>
+      <div class="opts">
+        <select class="sel" id="speed" aria-label="再生の速さ">
+          <option value="1">1.0倍</option>
+          <option value="1.25">1.25倍</option>
+          <option value="1.5">1.5倍</option>
+          <option value="2">2.0倍</option>
+        </select>
+      </div>
+    </div>
+    <div class="chapters" id="chapters"></div>
+    <p class="voice-note" id="voice-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>
+      <span id="voice-text"><b>このデモに音声は入っていません（字幕で進みます）。</b>本番の音声は外部のAI音声サービス（Google Chirp 3 HD）で作り、下の「公開前の音声チェック」に合格した回だけを流します。端末の読み上げ機能は使いません。</span>
+    </p>
+  </section>
+
+  <section class="panel check" aria-labelledby="chk-h">
+    <div class="sec-head"><h2 id="chk-h">公開前の音声チェック</h2><p>誤読が見つかった回は公開しません</p></div>
+    <ol class="steps">
+      <li><b>事前チェック</b><span>英字・数字・読み分けが必要な言葉を見つけ、読みを決める</span></li>
+      <li><b>音声を作る</b><span>外部のAI音声（Google Chirp 3 HD）で1行ずつ作る</span></li>
+      <li><b>聞き直す</b><span>できた音声を文字に起こし、台本の読みと照らし合わせる</span></li>
+      <li><b>判定</b><span>全行合格で公開。不合格の行は作り直し、3回で直らなければ公開を止める</span></li>
+    </ol>
+    <div class="chk-grid">
+      <div>
+        <h3>今日の台本の事前チェック <span class="tag real">実際に実行した結果</span></h3>
+        <p class="small">39行・1,427字から、読みを決める必要がある言葉を20種類見つけ、すべて解決しました。</p>
+        <div class="yomi-groups">
+          <div class="yg"><h4>英字　読み辞書で置き換えて音声に渡す</h4>
+            <ul class="chips">
+              <li><span class="w">AI</span>エーアイ<span class="n">×10</span></li>
+              <li><span class="w">Google</span>グーグル<span class="n">×3</span></li>
+              <li><span class="w">Anthropic</span>アンソロピック<span class="n">×2</span></li>
+              <li><span class="w">FlashProve</span>フラッシュプルーフ<span class="n">×2</span></li>
+              <li><span class="w">Claude</span>クロード</li>
+              <li><span class="w">Gemini</span>ジェミニ</li>
+              <li><span class="w">OpenAI</span>オープンエーアイ</li>
+              <li><span class="w">CBS</span>シービーエス</li>
+              <li><span class="w">CNBC</span>シーエヌビーシー</li>
+            </ul></div>
+          <div class="yg"><h4>読み分けが必要な言葉　文脈から読みを決めて、ひらがなで渡す</h4>
+            <ul class="chips">
+              <li><span class="w">今日</span>きょう<span class="n">×3</span></li>
+              <li><span class="w">明日</span>あした<span class="n">×2</span></li>
+              <li><span class="w">市場</span>しじょう</li>
+              <li><span class="w">大事</span>だいじ</li>
+              <li><span class="w">何</span>なに</li>
+              <li><span class="w">1分</span>いっぷん<span class="n">×2</span></li>
+              <li><span class="w">5分</span>ごふん</li>
+            </ul></div>
+          <div class="yg"><h4>数字　そのまま渡し、音声を作ったあとで読みを確認</h4>
+            <ul class="chips">
+              <li><span class="w">200億</span>にひゃくおく</li>
+              <li><span class="w">110億</span>ひゃくじゅうおく</li>
+              <li><span class="w">3兆</span>さんちょう<span class="n">×2</span></li>
+              <li><span class="w">11月</span>じゅういちがつ</li>
+            </ul></div>
+        </div>
+      </div>
+      <div>
+        <h3>聞き直しの判定例 <span class="tag test">テスト用の聞き取り結果</span></h3>
+        <p class="small">わざと誤読を入れた聞き取り結果で、判定が働くことを確かめました。実際の音声の結果ではありません。</p>
+        <ul class="cases">
+          <li class="case"><div class="cl"><span class="vd retry">不合格 → 作り直して合格</span><span class="why">名前の読み</span></div>
+            <p><span class="miss">クラウド</span>を開発しているアンソロピックが、フラッシュプルーフという…</p>
+            <p class="note">一致率は96%と高いものの、登録した言葉「Claude（クロード）」の読みがないため不合格。</p></li>
+          <li class="case"><div class="cl"><span class="vd retry">不合格 → 作り直して合格</span><span class="why">名前の読み</span></div>
+            <p><span class="miss">フラッシュプローブ</span>。どんなものですか？</p>
+            <p class="note">「FlashProve（フラッシュプルーフ）」と違う。一致率88%。</p></li>
+          <li class="case"><div class="cl"><span class="vd retry">不合格 → 作り直して合格</span><span class="why">数字</span></div>
+            <p>目標は<span class="miss">2000億</span>ドル、日本円でおよそ3兆円です。</p>
+            <p class="note">台本は「200億」。数字の食い違いで不合格。</p></li>
+          <li class="case"><div class="cl"><span class="vd hold">3回とも不合格 → 公開保留</span><span class="why">読み飛ばし</span></div>
+            <p>…民主党が下院で過半数を取る見通しです。<span class="miss">（「上院でも多数派になる」が抜けた）</span></p>
+            <p class="note">一致率87%（合格ラインは93%）。</p></li>
+        </ul>
+        <p class="verdict">この例では39行中38行が合格、1行が直らなかったため、この回は<b>公開保留</b>になります。ページは前日の回のままにして、確認をお知らせします。</p>
+      </div>
+    </div>
+    <p class="criteria"><b>合格の条件</b>①登録した言葉の読みが聞き取れる　②数字がすべて一致する　③読みの一致率が93%以上</p>
+  </section>
+
+  <div class="grid2">
+    <div class="stack">
+      <section class="panel" aria-labelledby="fb-h">
+        <h2 id="fb-h">この回の評価</h2>
+        <p class="small">話題ごとに押してください。明日からの話題選びに反映されます。</p>
+        <div id="fbrows"></div>
+      </section>
+      <section class="panel quiz" aria-labelledby="quiz-h">
+        <h2 id="quiz-h">今日のクイズ</h2>
+        <p class="quiz-q">AnthropicのFlashProveは、何を証明する仕組み？</p>
+        <div class="quiz-opts" id="quiz">
+          <button type="button" data-ok="0">文章をAIが書いたのか、人が書いたのか</button>
+          <button type="button" data-ok="1">回答を、どのAIモデルが作ったのか</button>
+          <button type="button" data-ok="0">ニュースの内容が本当かどうか</button>
+        </div>
+        <p class="quiz-res" id="quiz-res" aria-live="polite"></p>
+      </section>
+    </div>
+    <section class="panel" aria-labelledby="taste-h">
+      <h2 id="taste-h">あなたの好み</h2>
+      <p class="small">評価から学んだ話題の重みです。月〜水の評価（サンプル）を含みます。</p>
+      <ul class="taste" id="taste"></ul>
+      <div class="plan">
+        <h3>来週の番組への反映</h3>
+        <p class="hint" id="plan-hint"></p>
+        <ul id="plan"></ul>
+      </div>
+      <button type="button" class="linkbtn" id="reset">今日の評価をリセット</button>
+    </section>
+  </div>
+
+  <section aria-labelledby="week-h">
+    <div class="sec-head"><h2 id="week-h">今週の番組表</h2><p>平日は5分。AI・経済の日は最後に「世界の1分」が付きます</p></div>
+    <div class="week" id="week"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="panel">
+      <details class="script" id="script">
+        <summary>台本と読み上げ用の文を読む（約<span id="chars">1,500</span>字）</summary>
+        <div class="small" style="margin-top:8px">灰色の行は、事前チェックのあとで実際に音声へ渡す文です。</div>
+        <div id="script-body"></div>
+        <h4>出典</h4>
+        <ul class="srcs">
+          <li><a href="https://techcrunch.com/2026/11/04/google-faces-backlash-for-plan-that-would-turn-off-search-for-schools-that-restrict-ai" target="_blank" rel="noopener">TechCrunch（11月4日）Googleの学校向けAI方針への反発</a></li>
+          <li><a href="https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/" target="_blank" rel="noopener">TechCrunch（11月3日）AnthropicのFlashProve</a></li>
+          <li><a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round" target="_blank" rel="noopener">TechCrunch（10月31日）OpenAIの資金調達目標（WSJの報道）</a></li>
+          <li><a href="https://www.cbsnews.com/live-updates/house-election-results-2026/" target="_blank" rel="noopener">CBS News 下院の選挙結果</a>・<a href="https://www.cbsnews.com/live-updates/senate-election-results-2026/" target="_blank" rel="noopener">上院の選挙結果</a></li>
+          <li><a href="https://www.cnbc.com/2026/11/04/2026-midterm-election-results-live-updates.html" target="_blank" rel="noopener">CNBC（11月4日）中間選挙の結果</a></li>
+        </ul>
+      </details>
+    </section>
+    <section class="panel" aria-labelledby="how-h">
+      <h2 id="how-h">本番の仕組みと費用</h2>
+      <ol class="flow">
+        <li>毎朝6時、Claude Codeの定期実行がニュースを集め、台本とスライドを作る</li>
+        <li>読み間違えやすい言葉の読みを決める（事前チェック）</li>
+        <li>外部のAI音声で音声を作り、文字に起こして台本と照らし合わせる</li>
+        <li>合格した回だけ、このページに公開される</li>
+        <li>あなたの評価が、翌日からの話題選びに反映される</li>
+      </ol>
+      <table class="costs">
+        <tr><td>台本・スライド<br><small>Claude Codeの定期実行（今の契約内）</small></td><td>0円</td></tr>
+        <tr><td>音声<br><small>Chirp 3 HDの無料枠内（月4万字＋作り直し分）</small></td><td>0円</td></tr>
+        <tr><td>誤読チェックの文字起こし<br><small>Whisper（無料のソフト）をGitHub Actionsで実行</small></td><td>0円</td></tr>
+        <tr><td>ページと評価の保存<br><small>無料枠</small></td><td>0円</td></tr>
+        <tr class="total"><td>合計</td><td>0円</td></tr>
+        <tr><td colspan="2"><small>文字起こしをGoogle Speech-to-Textにすると月数百円。会話をもっと自然にしたい場合は、Gemini TTSで月260円ほど（2027年1月から約530円）。</small></td></tr>
+      </table>
+    </section>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt=t=>{t=Math.max(0,Math.floor(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+const ICON={
+  play:'<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg>',
+  pause:'<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.5 4h4v16h-4zM13.5 4h4v16h-4z"/></svg>',
+  prev:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg>',
+  next:'<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg>',
+  up:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
+  down:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>'
+};
+const NAME={hal:'ハル',sora:'ソラ'};
+
+const CH=[
+ {key:'op',short:'オープニング',slide:{type:'agenda',eyebrow:'11月5日（木） ・ AIの回',title:'きょうの内容',items:[
+   ['Google、学校のAIと検索','AI'],['Anthropicの「FlashProve」','AI'],['OpenAI、資金調達の目標を下げる','AI'],['世界の1分：米中間選挙','世界']]}},
+ {key:'t1',short:'学校のAIと検索',label:'Google、学校のAIと検索',tags:['AI規制・教育'],slide:{type:'points',eyebrow:'AI ・ 話題 1/3',title:'AIを使わない学校は、検索も使えない？',
+   points:['GeminiなどのAIツールは、学校では最初オフ','有効にしない学校では、検索も使えなくなると説明','「本当に選べるのか」と反発が広がる'],src:'出典：TechCrunch（11月4日）'}},
+ {key:'t2',short:'FlashProve',label:'Anthropicの「FlashProve」',tags:['AIの安全・信頼'],slide:{type:'points',eyebrow:'AI ・ 話題 2/3',title:'どのAIが作ったかを証明する「FlashProve」',
+   points:['回答を作ったモデルを、暗号の技術で証明','使われたモデルを、利用者が確かめられる','仕様とコードはオープンソースで公開'],src:'出典：TechCrunch（11月3日）'}},
+ {key:'t3',short:'OpenAIの資金',label:'OpenAI、資金調達の目標を下げる',tags:['AIビジネス・資金'],slide:{type:'big',eyebrow:'AI ・ 話題 3/3',title:'OpenAI、資金調達の目標を引き下げ',
+   num:'200億ドル',unit:'（約3兆円）',lbl:'新しい資金調達の目標',meter:'これまでに集まった額：約110億ドル',src:'出典：TechCrunch（10月31日、WSJの報道）'}},
+ {key:'w',short:'世界の1分',label:'世界の1分：米中間選挙',tags:['米国政治'],slide:{type:'boxes',eyebrow:'世界の1分',title:'米中間選挙　民主党が上下両院で多数派の見通し',
+   boxes:[['大統領','共和党（トランプ）','rep'],['下院','民主党が過半数の見通し','dem'],['上院','民主党が多数派の見通し','dem']],cap:'大統領と議会の多数派が分かれる<b>「ねじれ」</b>に',src:'出典：CBS News・CNBC（11月4日）'}},
+ {key:'ed',short:'エンディング',slide:{type:'ending',eyebrow:'エンディング',title:'今日のクイズ',quiz:'FlashProveは、何を証明する仕組み？',next:'明日 11月6日（金）は <b>経済の回</b>'}}
+];
+
+const L=(c,s,t)=>({c,s,t});
+const LINES=[
+ L(0,'sora','おはようございます。11月5日、木曜日の「毎朝5分ラジオ」です。今日はAIの回です。'),
+ L(0,'hal','おはようございます、解説のハルです。今日はAIの話題を3つと、最後に「世界の1分ニュース」をお届けします。'),
+ L(1,'sora','では1つ目、お願いします。'),
+ L(1,'hal','Googleの学校向けサービスの話です。'),
+ L(1,'hal','アメリカの報道によると、GoogleはGeminiなどのAIツールを、学校では最初はオフにしておく方針を示しました。'),
+ L(1,'sora','学校が使うかどうか選べるなら、良いことに聞こえますね。'),
+ L(1,'hal','ところが、AIツールを有効にしない学校では、生徒がGoogle検索まで使えなくなるという説明があって、反発が広がっているんです。'),
+ L(1,'sora','えっ、検索も使えないんですか。それは困りますね。'),
+ L(1,'hal','背景には、いまの検索にAIの要約が組み込まれていて、AIだけを切り離しにくい事情があるとみられます。'),
+ L(1,'sora','AIを使うかどうかを、学校が本当に自由に選べるのか、という問題なんですね。'),
+ L(1,'hal','そうなんです。日本の学校でも、これから同じような議論が出てくるかもしれません。'),
+ L(2,'sora','2つ目は？'),
+ L(2,'hal','Claudeを開発しているAnthropicが、「FlashProve」という仕組みを作っていると報じられました。'),
+ L(2,'sora','フラッシュプルーフ。どんなものですか？'),
+ L(2,'hal','ある回答を、どのAIモデルが作ったのかを証明する仕組みです。'),
+ L(2,'hal','暗号の技術を使って、回答に「証明書」を付けるようなイメージですね。'),
+ L(2,'sora','それは、どんなときに役立つんでしょう。'),
+ L(2,'hal','たとえば「高性能なモデルを使っています」と言うサービスがあっても、利用者には確かめる方法がありません。'),
+ L(2,'hal','こっそり安いモデルに変えられていても、気づけないわけです。'),
+ L(2,'sora','たしかに、外からは分かりませんね。'),
+ L(2,'hal','この仕組みがあれば、それを確かめられるようになります。仕様とコードは、オープンソースで公開されているそうです。'),
+ L(2,'sora','AIが当たり前になるほど、「本物かどうか」を確かめる技術が大事になりそうですね。'),
+ L(3,'sora','3つ目は、お金の話だそうですね。'),
+ L(3,'hal','はい。ウォール・ストリート・ジャーナルの報道として、OpenAIが新しい資金調達の目標を引き下げたと伝えられました。'),
+ L(3,'hal','目標は200億ドル、日本円でおよそ3兆円です。これまでに集まったのは、110億ドルほどだそうです。'),
+ L(3,'sora','3兆円でもすごい金額ですけど、「引き下げ」なんですね。'),
+ L(3,'hal','AIの開発には、データセンターなどに巨額のお金がかかります。お金を出す側の目も、これから厳しくなっていくかもしれません。'),
+ L(3,'sora','AIブームが曲がり角、ということですか？'),
+ L(3,'hal','そこまでは言い切れません。ただ、どの会社が本当に利益を出せるのかが、これまで以上に問われる段階に入ってきたと言えそうです。'),
+ L(4,'sora','最後は「世界の1分ニュース」です。'),
+ L(4,'hal','アメリカの中間選挙です。CBSやCNBCの予測では、野党の民主党が下院で過半数を取り、上院でも多数派になる見通しです。'),
+ L(4,'sora','トランプ大統領は共和党ですよね。'),
+ L(4,'hal','はい。大統領と議会の多数派が違う、いわゆる「ねじれ」の状態になります。政権が進めたい法案は、議会を通りにくくなりそうです。'),
+ L(4,'sora','日本への影響はありますか？'),
+ L(4,'hal','関税や外交をめぐって、議会の発言力が強まる可能性があります。明日の経済の回で、市場の反応も見ていきましょう。'),
+ L(5,'sora','今日のクイズです。AnthropicのFlashProveは、何を証明する仕組みだったでしょう？'),
+ L(5,'hal','答えは、ページの下のクイズで確かめてください。'),
+ L(5,'sora','気になった話題には「興味あり」、いまいちだったら「興味なし」を押してくださいね。'),
+ L(5,'hal','それではまた明日。明日、金曜日は経済の回です。')
+];
+
+const CPS=5; /* 300字/分 = 5字/秒 */
+const BASE=LINES.map(l=>Math.max(1.8,l.t.length/CPS+0.5));
+const STARTS=[];let acc=0;BASE.forEach((d,i)=>{STARTS[i]=acc;acc+=d});
+const TOTAL=acc;
+const CH_START=CH.map((_,c)=>LINES.findIndex(l=>l.c===c));
+
+const stage=$('#stage'),slide=$('#slide'),sub=$('#sub');
+let idx=0,playing=false,ended=false,timer=null,raf=null,lineT0=0,mode='subs',speed=1,shownCh=-1,curUtt=null;
+const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function slideHTML(c){
+  const s=CH[c].slide;
+  let h=`<div class="s-eyebrow">${s.eyebrow}</div><div class="s-title">${s.title}</div>`;
+  if(s.type==='agenda'){
+    h+=`<ol class="s-agenda">${s.items.map((it,i)=>`<li><b>${i<3?i+1:'＋'}</b><span>${esc(it[0])}<small>${it[1]}</small></span></li>`).join('')}</ol>`;
+  }else if(s.type==='points'){
+    h+=`<ul class="s-points">${s.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul><div class="s-src">${s.src}</div>`;
+  }else if(s.type==='big'){
+    h+=`<div class="s-big"><div class="num">${s.num}<small>${s.unit}</small></div><div class="lbl">${s.lbl}</div><div class="meter" aria-hidden="true"><i></i></div><div class="meter-l">${s.meter}</div></div><div class="s-src">${s.src}</div>`;
+  }else if(s.type==='boxes'){
+    h+=`<div class="s-boxes">${s.boxes.map(b=>`<div class="s-box" style="--c:var(--${b[2]})"><div class="k">${b[0]}</div><div class="v">${b[1]}</div></div>`).join('')}</div><div class="s-cap">→ ${s.cap}</div><div class="s-src">${s.src}</div>`;
+  }else if(s.type==='ending'){
+    h+=`<div class="s-quiz">Q. ${s.quiz}</div><div class="s-next">${s.next}</div>`;
+  }
+  return h;
+}
+function setChapter(c){
+  if(c===shownCh)return;
+  const first=shownCh===-1;
+  shownCh=c;
+  document.querySelectorAll('#chapters button').forEach(b=>b.setAttribute('aria-current',String(Number(b.dataset.c)===c)));
+  $('#tchap').textContent=CH[c].short;
+  if(first||reduce){slide.innerHTML=slideHTML(c);return}
+  slide.classList.add('fade');
+  setTimeout(()=>{slide.innerHTML=slideHTML(shownCh);slide.classList.remove('fade')},200);
+}
+function showLine(i){
+  idx=i;const l=LINES[i];
+  setChapter(l.c);
+  sub.innerHTML=`<span class="who ${l.s}">${NAME[l.s]}</span>${esc(l.t)}`;
+}
+function setTalking(s){
+  $('#hal').classList.toggle('talking',s==='hal');
+  $('#sora').classList.toggle('talking',s==='sora');
+}
+function updateTime(t){
+  const pct=Math.min(100,t/TOTAL*100);
+  $('#fill').style.width=pct+'%';
+  $('#track').setAttribute('aria-valuenow',Math.round(pct));
+  $('#tnow').textContent=fmt(t);
+}
+function tick(){
+  if(!playing)return;
+  const el=Math.min(BASE[idx],(performance.now()-lineT0)/1000*speed);
+  updateTime(STARTS[idx]+el);
+  raf=requestAnimationFrame(tick);
+}
+
+/* 音声は外部のAI音声で作り、公開前チェックに合格したものだけを使う。デモには音声がないため字幕で進める */
+function stopTTS(){}
+
+/* ---- transport ---- */
+function startLine(){
+  showLine(idx);
+  setTalking(LINES[idx].s);
+  lineT0=performance.now();
+  clearTimeout(timer);
+  timer=setTimeout(next,BASE[idx]/speed*1000);
+  cancelAnimationFrame(raf);raf=requestAnimationFrame(tick);
+}
+function next(){
+  if(!playing)return;
+  if(idx<LINES.length-1){idx++;startLine()}else{finish()}
+}
+function updPlay(){
+  $('#play').innerHTML=playing?ICON.pause:ICON.play;
+  $('#play').setAttribute('aria-label',playing?'一時停止':'再生');
+  stage.classList.toggle('playing',playing);
+}
+function play(){
+  if(playing)return;
+  if(ended){idx=0;ended=false}
+  playing=true;updPlay();startLine();
+}
+function pause(){
+  playing=false;clearTimeout(timer);cancelAnimationFrame(raf);stopTTS();setTalking(null);updPlay();updateTime(STARTS[idx]);
+}
+function finish(){
+  playing=false;clearTimeout(timer);cancelAnimationFrame(raf);stopTTS();setTalking(null);updPlay();
+  ended=true;updateTime(TOTAL);
+  toast('今日の回はここまでです。下の「この回の評価」を押してください');
+}
+function goto(i){
+  i=Math.max(0,Math.min(LINES.length-1,i));
+  ended=false;
+  if(playing){clearTimeout(timer);stopTTS();idx=i;startLine()}
+  else{showLine(i);updateTime(STARTS[i])}
+}
+function chapterOf(i){return LINES[i].c}
+
+/* ---- build chapters, controls ---- */
+$('#chapters').innerHTML=CH.map((c,i)=>`<button type="button" data-c="${i}" aria-current="false"><span class="t">${fmt(STARTS[CH_START[i]])}</span>${c.short}</button>`).join('');
+const track=$('#track');
+CH.slice(1).forEach((c,i)=>{const m=document.createElement('span');m.className='cm';m.style.left=(STARTS[CH_START[i+1]]/TOTAL*100)+'%';track.appendChild(m)});
+$('#ttotal').textContent=fmt(TOTAL);
+$('#ep-min').textContent=Math.round(TOTAL/60);
+$('#prev').innerHTML=ICON.prev;$('#next').innerHTML=ICON.next;
+updPlay();
+
+$('#play').addEventListener('click',()=>playing?pause():play());
+$('#next').addEventListener('click',()=>{const c=chapterOf(idx);if(c<CH.length-1)goto(CH_START[c+1])});
+$('#prev').addEventListener('click',()=>{const c=chapterOf(idx);const atStart=idx===CH_START[c];goto(CH_START[atStart&&c>0?c-1:c])});
+$('#chapters').addEventListener('click',e=>{const b=e.target.closest('button');if(b)goto(CH_START[Number(b.dataset.c)])});
+track.addEventListener('click',e=>{
+  const r=track.getBoundingClientRect();const t=(e.clientX-r.left)/r.width*TOTAL;
+  let i=0;STARTS.forEach((s,k)=>{if(s<=t)i=k});goto(i);
+});
+track.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'){goto(idx+1);e.preventDefault()}
+  if(e.key==='ArrowLeft'){goto(idx-1);e.preventDefault()}
+});
+$('#speed').addEventListener('change',e=>{speed=Number(e.target.value);if(playing){clearTimeout(timer);stopTTS();startLine()}});
+
+/* ---- feedback & taste ---- */
+const KEY='maiasa-radio-demo-v1';
+const PRIOR={'AI規制・教育':0,'AIの安全・信頼':1,'AIビジネス・資金':0,'為替・金利':1,'株式市場':0,'米国政治':0};
+const TOPICS=CH.filter(c=>c.tags);
+let fb={};
+try{fb=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){fb={}}
+TOPICS.forEach(c=>{fb[c.key]=Object.assign({v:0,deep:false,hard:false},fb[c.key]||{})});
+function save(){try{localStorage.setItem(KEY,JSON.stringify(fb))}catch(e){}}
+
+function renderFb(){
+  $('#fbrows').innerHTML=TOPICS.map(c=>{
+    const f=fb[c.key];
+    return `<div class="fbrow">
+      <div><div class="ttl">${c.label}</div><div class="tg">${c.tags.join('・')}</div></div>
+      <div class="fbbtns">
+        <button type="button" class="fb up" data-k="${c.key}" data-v="1" aria-pressed="${f.v===1}" aria-label="${c.label}：興味あり" title="興味あり">${ICON.up}</button>
+        <button type="button" class="fb down" data-k="${c.key}" data-v="-1" aria-pressed="${f.v===-1}" aria-label="${c.label}：興味なし" title="興味なし">${ICON.down}</button>
+      </div>
+      <div class="fbextra">
+        <button type="button" class="chipbtn" data-k="${c.key}" data-x="deep" aria-pressed="${f.deep}">もっと深く知りたい</button>
+        <button type="button" class="chipbtn" data-k="${c.key}" data-x="hard" aria-pressed="${f.hard}">むずかしかった</button>
+      </div></div>`;
+  }).join('');
+}
+function weights(){
+  const w=Object.assign({},PRIOR);
+  TOPICS.forEach(c=>{const f=fb[c.key];c.tags.forEach(t=>{if(f.v===1)w[t]+=1;if(f.v===-1)w[t]-=1.2;if(f.deep)w[t]+=0.5})});
+  return w;
+}
+function renderTaste(){
+  const w=weights();
+  const order=Object.keys(w).sort((a,b)=>w[b]-w[a]);
+  $('#taste').innerHTML=order.map(t=>{
+    const v=w[t],pos=v>=0;
+    const width=pos?Math.min(100,22+v*26):Math.min(100,-v*30);
+    const lv=v>=1.5?'<span class="lv pos">優先</span>':v>=0.5?'<span class="lv pos">やや優先</span>':v<=-0.5?'<span class="lv neg">控えめ</span>':'<span class="lv">標準</span>';
+    return `<li><span>${t}</span>${lv}<span class="bar"><i class="${pos?'':'neg'}" style="width:${width}%"></i></span></li>`;
+  }).join('');
+  const items=[];
+  TOPICS.forEach(c=>{
+    const f=fb[c.key];
+    if(f.deep)items.push(`「${c.label}」は、土曜のまとめで深掘りします`);
+    if(f.hard)items.push(`「${c.label}」のような話題は、用語の説明を増やします`);
+    if(f.v===-1)items.push(`「${c.tags[0]}」の話題は短めにします`);
+  });
+  order.filter(t=>w[t]>=1.5).forEach(t=>items.push(`「${t}」の話題を優先して選びます`));
+  items.push('好み以外の重要なニュースも、2〜3割は入れます（探索枠）');
+  const any=TOPICS.some(c=>{const f=fb[c.key];return f.v||f.deep||f.hard});
+  $('#plan-hint').textContent=any?'今日の評価をもとに、次のように調整します。':'まだ今日の評価がありません。左の👍👎を押すと、ここに反映内容が出ます。';
+  $('#plan').innerHTML=items.map(s=>`<li>${esc(s)}</li>`).join('');
+}
+$('#fbrows').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  const f=fb[b.dataset.k];
+  if(b.dataset.x){f[b.dataset.x]=!f[b.dataset.x];toast(f[b.dataset.x]?'記録しました':'取り消しました')}
+  else{const v=Number(b.dataset.v);f.v=f.v===v?0:v;toast(f.v===1?'「興味あり」を記録しました':f.v===-1?'「興味なし」を記録しました':'評価を取り消しました')}
+  save();renderFb();renderTaste();
+});
+$('#reset').addEventListener('click',()=>{TOPICS.forEach(c=>{fb[c.key]={v:0,deep:false,hard:false}});save();renderFb();renderTaste();toast('今日の評価をリセットしました')});
+
+/* ---- quiz ---- */
+$('#quiz').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  $('#quiz').querySelectorAll('button').forEach(x=>{x.classList.remove('correct','wrong');if(x.dataset.ok==='1')x.classList.add('correct')});
+  const ok=b.dataset.ok==='1';
+  if(!ok)b.classList.add('wrong');
+  $('#quiz-res').textContent=ok?'正解です。回答を作ったモデルを、暗号の技術で証明する仕組みでした。':'おしい。正解は「回答を、どのAIモデルが作ったのか」です。';
+});
+
+/* ---- week ---- */
+const WEEK=[
+ {d:'月',date:'11/2',theme:'AI',cls:'ai',title:'Anthropic、上場書類で「自己改良するAI」のしきい値が近いと説明',sub:'＋世界の1分',st:'視聴済み・興味あり'},
+ {d:'火',date:'11/3',theme:'経済',cls:'eco',title:'ドル円157円台　日銀の12月利上げは？',sub:'＋世界の1分',st:'視聴済み・興味あり'},
+ {d:'水',date:'11/4',theme:'世界',cls:'world',title:'世界ニュース特集：米中間選挙の開票と争点',sub:'5分の特集',st:'視聴済み'},
+ {d:'木',date:'11/5',theme:'AI',cls:'ai',title:'学校のAIと検索／FlashProve／OpenAIの資金調達',sub:'＋世界の1分',st:'今日の回',today:true},
+ {d:'金',date:'11/6',theme:'経済',cls:'eco',title:'決算シーズンと日経平均の急落',sub:'＋世界の1分',st:'前日の夜に台本を作成'},
+ {d:'土',date:'11/7',theme:'まとめ',cls:'sum',title:'今週「興味あり」が多かった話題を深掘り＋クイズ',sub:'5分',st:'予定'},
+ {d:'日',date:'11/8',theme:'お休み',cls:'off',title:'番組はお休みです',sub:'',st:'',off:true}
+];
+$('#week').innerHTML=WEEK.map(x=>`<div class="day${x.today?' today':''}${x.off?' off':''}">
+  <div class="dhead"><b>${x.d}</b><span>${x.date}</span></div>
+  <span class="theme ${x.cls}">${x.theme}</span>
+  <div class="dtitle">${esc(x.title)}</div>
+  ${x.sub?`<div class="dsub">${x.sub}</div>`:''}
+  ${x.st?`<div class="dstatus">${x.st}</div>`:''}
+</div>`).join('');
+
+/* ---- script ---- */
+/* 事前チェック（pipeline/prepare.py）の実行結果：音声に渡す文が台本と違う行 */
+const TTS={"0":"おはようございます。11月5日、木曜日の「毎朝ごふんラジオ」です。きょうはエーアイの回です。","1":"おはようございます、解説のハルです。きょうはエーアイの話題を3つと、最後に「世界のいっぷんニュース」をお届けします。","3":"グーグルの学校向けサービスの話です。","4":"アメリカの報道によると、グーグルはジェミニなどのエーアイツールを、学校では最初はオフにしておく方針を示しました。","6":"ところが、エーアイツールを有効にしない学校では、生徒がグーグル検索まで使えなくなるという説明があって、反発が広がっているんです。","8":"背景には、いまの検索にエーアイの要約が組み込まれていて、エーアイだけを切り離しにくい事情があるとみられます。","9":"エーアイを使うかどうかを、学校が本当に自由に選べるのか、という問題なんですね。","12":"クロードを開発しているアンソロピックが、「フラッシュプルーフ」という仕組みを作っていると報じられました。","14":"ある回答を、どのエーアイモデルが作ったのかを証明する仕組みです。","21":"エーアイが当たり前になるほど、「本物かどうか」を確かめる技術がだいじになりそうですね。","23":"はい。ウォール・ストリート・ジャーナルの報道として、オープンエーアイが新しい資金調達の目標を引き下げたと伝えられました。","26":"エーアイの開発には、データセンターなどに巨額のお金がかかります。お金を出す側の目も、これから厳しくなっていくかもしれません。","27":"エーアイブームが曲がり角、ということですか？","29":"最後は「世界のいっぷんニュース」です。","30":"アメリカの中間選挙です。シービーエスやシーエヌビーシーの予測では、野党の民主党が下院で過半数を取り、上院でも多数派になる見通しです。","34":"関税や外交をめぐって、議会の発言力が強まる可能性があります。あしたの経済の回で、しじょうの反応も見ていきましょう。","35":"きょうのクイズです。アンソロピックのフラッシュプルーフは、なにを証明する仕組みだったでしょう？","38":"それではまたあした。あした、金曜日は経済の回です。"};
+let chars=0;
+$('#script-body').innerHTML=CH.map((c,ci)=>`<h4>${c.label||c.short}</h4>`+LINES.map((l,i)=>[l,i]).filter(([l])=>l.c===ci).map(([l,i])=>{chars+=l.t.length;return `<p><b class="${l.s}">${NAME[l.s]}</b><span>${esc(l.t)}${TTS[i]?`<small class="tts">音声へ：${esc(TTS[i])}</small>`:''}</span></p>`}).join('')).join('');
+$('#chars').textContent=chars.toLocaleString('ja-JP');
+
+/* ---- toast ---- */
+let toastT;
+function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),2600)}
+
+/* ---- initial frame ---- */
+showLine(0);updateTime(0);renderFb();renderTaste();
+})();
+</script>

@@ -1,0 +1,12 @@
+{
+ "voices": {
+  "hal": "ja-JP-Chirp3-HD-Charon",
+  "sora": "ja-JP-Chirp3-HD-Aoede"
+ },
+ "speaking_rate": 1.0,
+ "min_ratio": 0.93,
+ "max_attempts": 3,
+ "strict_prepare": true,
+ "stt": "google",
+ "whisper_model": "medium"
+}

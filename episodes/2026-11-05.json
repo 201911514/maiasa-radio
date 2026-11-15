@@ -1,0 +1,226 @@
+{
+ "date": "2026-11-05",
+ "title": "11月5日（木） AIの回",
+ "lines": [
+  {
+   "chapter": "オープニング",
+   "speaker": "sora",
+   "text": "おはようございます。11月5日、木曜日の「毎朝5分ラジオ」です。今日はAIの回です。",
+   "yomi": {
+    "今日": "きょう",
+    "5分": "ごふん"
+   }
+  },
+  {
+   "chapter": "オープニング",
+   "speaker": "hal",
+   "text": "おはようございます、解説のハルです。今日はAIの話題を3つと、最後に「世界の1分ニュース」をお届けします。",
+   "yomi": {
+    "今日": "きょう",
+    "1分": "いっぷん"
+   }
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "sora",
+   "text": "では1つ目、お願いします。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "hal",
+   "text": "Googleの学校向けサービスの話です。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "hal",
+   "text": "アメリカの報道によると、GoogleはGeminiなどのAIツールを、学校では最初はオフにしておく方針を示しました。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "sora",
+   "text": "学校が使うかどうか選べるなら、良いことに聞こえますね。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "hal",
+   "text": "ところが、AIツールを有効にしない学校では、生徒がGoogle検索まで使えなくなるという説明があって、反発が広がっているんです。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "sora",
+   "text": "えっ、検索も使えないんですか。それは困りますね。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "hal",
+   "text": "背景には、いまの検索にAIの要約が組み込まれていて、AIだけを切り離しにくい事情があるとみられます。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "sora",
+   "text": "AIを使うかどうかを、学校が本当に自由に選べるのか、という問題なんですね。"
+  },
+  {
+   "chapter": "Google、学校のAIと検索",
+   "speaker": "hal",
+   "text": "そうなんです。日本の学校でも、これから同じような議論が出てくるかもしれません。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "sora",
+   "text": "2つ目は？"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "hal",
+   "text": "Claudeを開発しているAnthropicが、「FlashProve」という仕組みを作っていると報じられました。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "sora",
+   "text": "フラッシュプルーフ。どんなものですか？"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "hal",
+   "text": "ある回答を、どのAIモデルが作ったのかを証明する仕組みです。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "hal",
+   "text": "暗号の技術を使って、回答に「証明書」を付けるようなイメージですね。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "sora",
+   "text": "それは、どんなときに役立つんでしょう。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "hal",
+   "text": "たとえば「高性能なモデルを使っています」と言うサービスがあっても、利用者には確かめる方法がありません。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "hal",
+   "text": "こっそり安いモデルに変えられていても、気づけないわけです。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "sora",
+   "text": "たしかに、外からは分かりませんね。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "hal",
+   "text": "この仕組みがあれば、それを確かめられるようになります。仕様とコードは、オープンソースで公開されているそうです。"
+  },
+  {
+   "chapter": "Anthropicの「FlashProve」",
+   "speaker": "sora",
+   "text": "AIが当たり前になるほど、「本物かどうか」を確かめる技術が大事になりそうですね。",
+   "yomi": {
+    "大事": "だいじ"
+   }
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "sora",
+   "text": "3つ目は、お金の話だそうですね。"
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "hal",
+   "text": "はい。ウォール・ストリート・ジャーナルの報道として、OpenAIが新しい資金調達の目標を引き下げたと伝えられました。"
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "hal",
+   "text": "目標は200億ドル、日本円でおよそ3兆円です。これまでに集まったのは、110億ドルほどだそうです。"
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "sora",
+   "text": "3兆円でもすごい金額ですけど、「引き下げ」なんですね。"
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "hal",
+   "text": "AIの開発には、データセンターなどに巨額のお金がかかります。お金を出す側の目も、これから厳しくなっていくかもしれません。"
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "sora",
+   "text": "AIブームが曲がり角、ということですか？"
+  },
+  {
+   "chapter": "OpenAI、資金調達の目標を下げる",
+   "speaker": "hal",
+   "text": "そこまでは言い切れません。ただ、どの会社が本当に利益を出せるのかが、これまで以上に問われる段階に入ってきたと言えそうです。"
+  },
+  {
+   "chapter": "世界の1分：米中間選挙",
+   "speaker": "sora",
+   "text": "最後は「世界の1分ニュース」です。",
+   "yomi": {
+    "1分": "いっぷん"
+   }
+  },
+  {
+   "chapter": "世界の1分：米中間選挙",
+   "speaker": "hal",
+   "text": "アメリカの中間選挙です。CBSやCNBCの予測では、野党の民主党が下院で過半数を取り、上院でも多数派になる見通しです。"
+  },
+  {
+   "chapter": "世界の1分：米中間選挙",
+   "speaker": "sora",
+   "text": "トランプ大統領は共和党ですよね。"
+  },
+  {
+   "chapter": "世界の1分：米中間選挙",
+   "speaker": "hal",
+   "text": "はい。大統領と議会の多数派が違う、いわゆる「ねじれ」の状態になります。政権が進めたい法案は、議会を通りにくくなりそうです。"
+  },
+  {
+   "chapter": "世界の1分：米中間選挙",
+   "speaker": "sora",
+   "text": "日本への影響はありますか？"
+  },
+  {
+   "chapter": "世界の1分：米中間選挙",
+   "speaker": "hal",
+   "text": "関税や外交をめぐって、議会の発言力が強まる可能性があります。明日の経済の回で、市場の反応も見ていきましょう。",
+   "yomi": {
+    "明日": "あした",
+    "市場": "しじょう"
+   }
+  },
+  {
+   "chapter": "エンディング",
+   "speaker": "sora",
+   "text": "今日のクイズです。AnthropicのFlashProveは、何を証明する仕組みだったでしょう？",
+   "yomi": {
+    "今日": "きょう",
+    "何": "なに"
+   }
+  },
+  {
+   "chapter": "エンディング",
+   "speaker": "hal",
+   "text": "答えは、ページの下のクイズで確かめてください。"
+  },
+  {
+   "chapter": "エンディング",
+   "speaker": "sora",
+   "text": "気になった話題には「興味あり」、いまいちだったら「興味なし」を押してくださいね。"
+  },
+  {
+   "chapter": "エンディング",
+   "speaker": "hal",
+   "text": "それではまた明日。明日、金曜日は経済の回です。",
+   "yomi": {
+    "明日": "あした"
+   }
+  }
+ ]
+}
