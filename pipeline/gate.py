@@ -38,9 +38,10 @@ def run(ep_path: Path, cfg: dict, rd: ReadingDict, tts=None, stt=None, simulate:
         report["status"] = "事前チェックのみ"
         return 0, report
 
-    audio_parts = []
+    audio_parts, failed_audio = [], {}
     for line in prep["lines"]:
-        text, attempts = line["tts_text"], []
+        text, attempts, wav = line["tts_text"], [], None
+        yomi = ep["lines"][line["i"]].get("yomi")
         for n in range(cfg["max_attempts"]):
             if simulate is not None:
                 tries = simulate.get(str(line["i"]), [line["text"]])
@@ -48,24 +49,38 @@ def run(ep_path: Path, cfg: dict, rd: ReadingDict, tts=None, stt=None, simulate:
             else:
                 wav = tts.synthesize(text, line["speaker"])
                 heard = stt.transcribe(wav)
-            res = check_line(line["text"], text, heard, rd, cfg["min_ratio"], ep["lines"][line["i"]].get("yomi"))
-            attempts.append({"tts_text": text, "heard": heard, **{k: res[k] for k in ("ok", "ratio", "issues")}})
+            res = check_line(line["text"], text, heard, rd, cfg["min_ratio"], yomi)
+            alt = None
+            if not res["ok"] and wav is not None and hasattr(stt, "transcribe_alt"):
+                heard_alt = stt.transcribe_alt(wav)  # 同じ音声を別の方式で聞き直す
+                if heard_alt is not None:
+                    res_alt = check_line(line["text"], text, heard_alt, rd, cfg["min_ratio"], yomi)
+                    alt = {"heard": heard_alt, **{k: res_alt[k] for k in ("ok", "ratio", "issues")}}
+                    if res_alt["ok"]:
+                        res = res_alt  # heard は1回目の聞き取りのまま残し、alt に合格した聞き取りを残す
+            attempts.append({"tts_text": text, "heard": heard, "alt": alt,
+                             **{k: res[k] for k in ("ok", "ratio", "issues")}})
             if res["ok"]:
                 break
             text = fix_text(text, res, rd)  # 食い違った部分を読み（ひらがな）にして作り直す
         report["lines"].append({"i": line["i"], "speaker": line["speaker"], "text": line["text"],
                                 "ok": attempts[-1]["ok"], "attempts": attempts})
-        if attempts[-1]["ok"]:
-            audio_parts.append(wav)
-        else:
+        audio_parts.append(wav)
+        if not attempts[-1]["ok"]:
             report["failed"].append(line["i"])
+            failed_audio[line["i"]] = wav
 
     passed = not report["failed"]
     report["status"] = "公開OK" if passed else "公開保留"
-    if passed and out_dir and simulate is None:
+    if out_dir and simulate is None:
         from .backends import concat_wavs
         out_dir.mkdir(parents=True, exist_ok=True)
-        (out_dir / "episode.wav").write_bytes(concat_wavs(audio_parts))
+        if passed:
+            (out_dir / "episode.wav").write_bytes(concat_wavs(audio_parts))
+        else:  # 公開はしないが、人が聞いて確かめられるよう確認用の音声を残す
+            (out_dir / "review.wav").write_bytes(concat_wavs(audio_parts))
+            for i, w in failed_audio.items():
+                (out_dir / f"line-{i:02d}.wav").write_bytes(w)
     return (0 if passed else 2), report
 
 
@@ -100,6 +115,8 @@ def main(argv=None) -> int:
     for i in report["failed"]:
         last = report["lines"][i]["attempts"][-1]
         print(f"  不合格 行{i}: {[x['type'] for x in last['issues']]}  聞き取り: {last['heard']}")
+    if report["failed"] and not a.simulate:
+        print(f"  確認用の音声: {out_dir / 'review.wav'}（不合格の行は line-XX.wav）")
     return code
 
 

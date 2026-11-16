@@ -48,13 +48,26 @@ class GoogleTTS:
 
 
 class GoogleSTT:
-    def transcribe(self, wav: bytes) -> str:
-        res = _post("https://speech.googleapis.com/v1/speech:recognize", {
-            "config": {"encoding": "LINEAR16", "sampleRateHertz": SAMPLE_RATE, "languageCode": "ja-JP",
-                       "enableAutomaticPunctuation": True},
-            "audio": {"content": base64.b64encode(wav).decode()},
-        })
+    """alt_model: 1回目の聞き取りで不合格になったとき、同じ音声を聞き直す別の方式。
+    文字起こし側の聞き間違いで、正しい音声が不合格になるのを減らす。"""
+
+    def __init__(self, alt_model: str | None = "latest_short"):
+        self.alt_model = alt_model
+
+    def _recognize(self, wav: bytes, model: str | None = None) -> str:
+        cfg = {"encoding": "LINEAR16", "sampleRateHertz": SAMPLE_RATE, "languageCode": "ja-JP",
+               "enableAutomaticPunctuation": True}
+        if model:
+            cfg["model"] = model
+        res = _post("https://speech.googleapis.com/v1/speech:recognize",
+                    {"config": cfg, "audio": {"content": base64.b64encode(wav).decode()}})
         return "".join(r["alternatives"][0]["transcript"] for r in res.get("results", []))
+
+    def transcribe(self, wav: bytes) -> str:
+        return self._recognize(wav)
+
+    def transcribe_alt(self, wav: bytes) -> str | None:
+        return self._recognize(wav, self.alt_model) if self.alt_model else None
 
 
 class WhisperSTT:

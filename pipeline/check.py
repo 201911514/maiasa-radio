@@ -3,13 +3,18 @@
 合格の条件（すべて満たすこと）
 1. 用語：読み辞書に登録した言葉の読みが、聞き取り結果に含まれている
 2. 数字：台本の数字（2桁以上か、万・億・兆付き）の読みが、すべて含まれている
+   数字のすぐ後ろに単位（ドル・円など）があれば、数字と単位の組み合わせで含まれている
 3. 全体：台本と聞き取り結果の読みの一致率が、設定値（標準 0.93）以上
 """
 from __future__ import annotations
 
+import re
 from difflib import SequenceMatcher
 
-from .yomi import ReadingDict, hira_to_kata, kata_to_hira, numbers_in, to_kana, tokens
+from .yomi import ReadingDict, hira_to_kata, kata_to_hira, nfkc, numbers_in, to_kana, tokens
+
+# 数字のすぐ後ろの単位。ドルと円の取り違えなどは、数字だけを見ていると見逃すため、組み合わせで照合する
+UNIT_RE = re.compile(r"\d[\d,]*(?:\.\d+)?[万億兆]?\s*(?:ドル|円|ユーロ|元|ポンド|ウォン|パーセント|%)")
 
 
 def check_line(script_text: str, tts_text: str, heard: str, rd: ReadingDict, min_ratio: float = 0.93,
@@ -29,6 +34,10 @@ def check_line(script_text: str, tts_text: str, heard: str, rd: ReadingDict, min
     for raw, reading in numbers_in(script_text):
         if reading not in got:
             issues.append({"type": "数字", "word": raw, "expected": reading})
+    for m in UNIT_RE.finditer(nfkc(script_text)):
+        reading = to_kana(m.group(0), rd)
+        if reading not in got:
+            issues.append({"type": "数字と単位", "word": m.group(0), "expected": reading})
     if ratio < min_ratio:
         issues.append({"type": "全体", "ratio": round(ratio, 3), "min": min_ratio})
     diff = [

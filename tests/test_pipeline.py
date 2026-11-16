@@ -69,6 +69,14 @@ class Check(unittest.TestCase):
         r = self._c("目標は200億ドルです。", "目標は2000億ドルです。")
         self.assertIn("数字", [i["type"] for i in r["issues"]])
 
+    def test_wrong_unit_fails(self):
+        r = self._c("これまでに集まったのは、110億ドルほどだそうです。", "これまでに集まったのは110億円ほどだそうです")
+        self.assertIn("数字と単位", [i["type"] for i in r["issues"]])
+
+    def test_right_unit_passes(self):
+        r = self._c("日本円でおよそ3兆円です。", "日本円でおよそ三兆円です")
+        self.assertTrue(r["ok"], r)
+
     def test_skipped_phrase_fails(self):
         r = self._c("民主党が下院で過半数を取り、上院でも多数派になる見通しです。", "民主党が下院で過半数を取る見通しです。")
         self.assertIn("全体", [i["type"] for i in r["issues"]])
