@@ -111,6 +111,7 @@ python -m pipeline.gate episodes/2026-11-05.json
 | `web/radio.html` | 本番のページ（音声に字幕・スライド・口パクを合わせて再生、評価の保存） |
 | `pipeline/site.py` | 台本と公開前チェックの結果から、ページ用のデータ（`site/data/`）と音声（`site/audio/`）を作る |
 | `pipeline/prefs.py` | ページで押された評価から、話題の好みを計算する |
+| `pipeline/feed.py` | アレクサ（フラッシュニュース）用のフィードと、音量をそろえた音声を作り、GitHub Pages（`gh-pages` ブランチ）に置く |
 | `web/demo.html` | 最初の試作版（参考用） |
 
 ## 費用の目安（月26回・1回約5分）

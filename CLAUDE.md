@@ -8,6 +8,7 @@
 | 項目 | 内容 |
 |---|---|
 | 公開先 | `config.json` の `artifact_url`（claude.ai の非公開ページ。ページの元は `web/radio.html`） |
+| アレクサ | `config.json` の `feed_base_url`（GitHub Pages の `gh-pages` ブランチ。アレクサのフラッシュニュース用。ここの音声は誰でも取得できる） |
 | 番組表 | `config.json` の `schedule`。月・木＝AI、火・金＝経済、水＝世界特集、土＝今週のまとめ、日＝お休み。AI・経済の日は最後に「世界の1分」 |
 | 話し手 | ハル（解説・男性・Charon）、ソラ（聞き役・女性・Leda）。声は `config.json` の `voices` |
 | 長さ | 台本 1,600〜1,800字（約5分）。1行は60字以内 |
@@ -74,6 +75,9 @@
 1. Artifact で `action: "read"`、`url: <artifact_url>` を実行し、公開中のページを読む。読まずに公開すると拒否される。
 2. Artifact で公開する：`file_path: web/radio.html`、`url: <artifact_url>`、`files: <6 の JSON>`。
    - `capabilities` と `icon` は渡さない（保存済みの設定を引き継ぐ）。
+3. アレクサ用のフィードを更新する：`python -m pipeline.feed <日付> --push`
+   - 公開保留の日は `python -m pipeline.feed <日付> --held --push`（アレクサが「今日はお休み」と読み上げる）。
+   - フィードは `config.json` の `feed_base_url`（GitHub Pages）に置かれ、アレクサのフラッシュニュースが15分ごとに取りに来る。5時半に間に合うよう、この手順までを早めに終える。
 
 ### 8. 保存する
 1. `cp build/<日付>/report.json reports/<日付>.json`（保留でも行う）

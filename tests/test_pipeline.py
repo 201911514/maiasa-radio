@@ -91,6 +91,40 @@ class Check(unittest.TestCase):
         self.assertIn("しじょう", fix_text(tts, r, RD))
 
 
+class Feed(unittest.TestCase):
+    def _root(self, tmp: Path) -> Path:
+        cfg = dict(CFG, feed_base_url="https://example.github.io/maiasa-radio", artifact_url="https://claude.ai/artifact/x")
+        (tmp / "config.json").write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
+        return tmp
+
+    def test_held_feed_is_text_only(self):
+        import datetime as dt, tempfile
+        from pipeline.feed import build
+        with tempfile.TemporaryDirectory() as d:
+            out = build("2026-11-19", held=True, root=self._root(Path(d)),
+                        now=dt.datetime(2026, 11, 18, 19, 50, tzinfo=dt.timezone.utc))
+            item = json.loads((out / "feed.json").read_text(encoding="utf-8"))[0]
+            self.assertEqual(item["updateDate"], "2026-11-18T19:50:00.0Z")
+            self.assertNotIn("streamUrl", item)
+            self.assertIn("お休み", item["mainText"])
+
+    def test_audio_feed_points_to_normalized_mp3(self):
+        import subprocess, tempfile
+        from pipeline.feed import build
+        with tempfile.TemporaryDirectory() as d:
+            root = self._root(Path(d))
+            (root / "site/data/episodes").mkdir(parents=True)
+            (root / "site/data/episodes/2026-11-19.json").write_text(json.dumps({"title": "11月19日（木） AIの回"}, ensure_ascii=False), encoding="utf-8")
+            (root / "build/2026-11-19").mkdir(parents=True)
+            subprocess.run(["ffmpeg", "-loglevel", "error", "-f", "lavfi", "-i", "sine=frequency=440:duration=12",
+                            str(root / "build/2026-11-19/episode.wav")], check=True)
+            out = build("2026-11-19", root=root)
+            item = json.loads((out / "feed.json").read_text(encoding="utf-8"))[0]
+            self.assertEqual(item["streamUrl"], "https://example.github.io/maiasa-radio/audio/2026-11-19.mp3")
+            self.assertEqual(item["titleText"], "11月19日（木） AIの回")
+            self.assertTrue((out / "audio/2026-11-19.mp3").stat().st_size > 10000)
+
+
 class Gate(unittest.TestCase):
     def test_simulated_episode_is_held(self):
         sim = json.loads((ROOT / "tests/fixtures/simulated_2026-11-05.json").read_text(encoding="utf-8"))
