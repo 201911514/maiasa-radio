@@ -1,6 +1,27 @@
 {
  "episodes": [
   {
+   "date": "2026-11-18",
+   "weekday": "水",
+   "theme": "world",
+   "title": "11月18日（水） 世界ニュース特集",
+   "subtitle": "世界の話題を3つ、じっくり",
+   "topics": [
+    "米中ロ首脳、初の3者会談へ",
+    "バーレーンにイランのドローン攻撃",
+    "アメリカ、はしか「排除国」から外れる"
+   ],
+   "status": "公開OK",
+   "duration": 304.74,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 47,
+    "rechecked": 1,
+    "words": 28
+   }
+  },
+  {
    "date": "2026-11-05",
    "weekday": "木",
    "theme": "ai",
@@ -68,5 +89,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-18T09:33+09:00"
+ "updated": "2026-11-18T10:20+09:00"
 }

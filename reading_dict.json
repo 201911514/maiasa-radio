@@ -19,6 +19,10 @@
   {"reading": "アイピーオー", "forms": ["IPO"]},
   {"reading": "ジーディーピー", "forms": ["GDP"]},
   {"reading": "エフアールビー", "forms": ["FRB"]},
-  {"reading": "ダブリューエスジェー", "forms": ["WSJ"]}
+  {"reading": "ダブリューエスジェー", "forms": ["WSJ"]},
+  {"reading": "エーペック", "forms": ["APEC", "エーペック"]},
+  {"reading": "シュウキンペイ", "forms": ["習近平"]},
+  {"reading": "ダブリューエイチオー", "forms": ["WHO"]},
+  {"reading": "シンセン", "forms": ["深圳"]}
  ]
 }
