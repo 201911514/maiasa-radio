@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import re
 
-from .yomi import ReadingDict, hira_to_kata, kata_to_hira, nfkc, numbers_in, tagger
+from .yomi import BIG_RE, ReadingDict, big_numbers_to_kana, hira_to_kata, kata_to_hira, nfkc, numbers_in, tagger
 
 # 読み分けが必要な言葉（形態素の表記で照合）。ニュース台本でよく出るものから始め、増やしていく。
 HOMOGRAPHS: dict[str, list[str]] = {
@@ -51,10 +51,13 @@ def prepare_line(text: str, rd: ReadingDict, yomi: dict[str, str] | None = None)
         else:
             flags.append({"word": w, "type": "英字", "reading": "", "status": "未登録"})
     tts_text = rd.apply(tts_text)
+    # 億・兆の付く数字はカタカナの読みで渡す（文字起こしでは億・兆を確かめられないため、音声側で確実に読ませる）
+    tts_text = big_numbers_to_kana(tts_text)
 
     # 3) 数字
     for raw, reading in numbers_in(t):
-        flags.append({"word": raw, "type": "数字", "reading": reading, "status": "自動（事後チェックで確認）"})
+        status = "カタカナで読ませる（事後チェックは数字の部分で確認）" if BIG_RE.search(raw) else "自動（事後チェックで確認）"
+        flags.append({"word": raw, "type": "数字", "reading": reading, "status": status})
 
     # 4) 読み分けが必要な言葉・読みが取れない言葉
     for w in tagger()(tts_text):

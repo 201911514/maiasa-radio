@@ -77,6 +77,29 @@ class Check(unittest.TestCase):
         r = self._c("日本円でおよそ3兆円です。", "日本円でおよそ三兆円です")
         self.assertTrue(r["ok"], r)
 
+    # 2026-11-19 の本番で、文字起こしが億・兆を落とした実際の聞き取り結果
+    def test_big_units_dropped_by_stt_pass(self):
+        y = {"3か月間": "さんかげつかん"}
+        r = self._c("3か月間の売上高は、1158億ドル。日本円で、17兆円ほどです。", "3ヶ月間の売上高は1158ドル、日本円で17円ほどです。", y)
+        self.assertTrue(r["ok"], r["issues"])
+        r = self._c("150兆円ですか。とてつもない金額ですね。", "150円ですか とてつもない金額ですね")
+        self.assertTrue(r["ok"], r["issues"])
+
+    def test_big_number_wrong_digits_or_unit_fails(self):
+        y = {"3か月間": "さんかげつかん"}
+        r = self._c("3か月間の売上高は、1158億ドル。日本円で、17兆円ほどです。", "3ヶ月間の売上高は1185ドル、日本円で17円ほどです。", y)
+        self.assertIn("数字", [i["type"] for i in r["issues"]])
+        r = self._c("3か月間の売上高は、1158億ドル。日本円で、17兆円ほどです。", "3ヶ月間の売上高は1158円、日本円で17円ほどです。", y)
+        self.assertIn("数字と単位", [i["type"] for i in r["issues"]])
+        r = self._c("150兆円ですか。とてつもない金額ですね。", "150ですか？とてつもない金額ですね。")
+        self.assertFalse(r["ok"])  # 円まで落ちた聞き取りは不合格（別の方式で聞き直す）
+
+    def test_big_numbers_are_sent_as_kana(self):
+        r = prepare_line("売上高は1158億ドル、日本円で17兆円です。人数は5400人。", RD)
+        self.assertIn("センヒャクゴジュウハチオクドル", r["tts_text"])
+        self.assertIn("ジュウナナチョウ円", r["tts_text"])
+        self.assertIn("5400人", r["tts_text"])
+
     def test_skipped_phrase_fails(self):
         r = self._c("民主党が下院で過半数を取り、上院でも多数派になる見通しです。", "民主党が下院で過半数を取る見通しです。")
         self.assertIn("全体", [i["type"] for i in r["issues"]])
