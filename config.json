@@ -3,14 +3,14 @@
   "hal": "ja-JP-Chirp3-HD-Charon",
   "sora": "ja-JP-Chirp3-HD-Leda"
  },
- "speaking_rate": 1.0,
+ "speaking_rate": 1.25,
  "min_ratio": 0.93,
  "max_attempts": 3,
  "strict_prepare": true,
  "stt": "google",
  "whisper_model": "medium",
  "listen_time": "05:30",
- "target_chars": 1700,
+ "target_chars": 1900,
  "keep_audio_days": 14,
  "artifact_url": "https://claude.ai/artifact/FvQbsErriHJQjQodhqGV5x",
  "schedule": [
