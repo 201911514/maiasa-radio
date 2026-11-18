@@ -83,6 +83,21 @@ def number_to_kana(m: re.Match) -> str:
     return int_to_kana(whole)
 
 
+BIG_RE = re.compile(r"(\d[\d,]*(?:\.\d+)?)\s*[億兆]")
+
+
+def drop_big_units(text: str) -> str:
+    """「1158億ドル」→「1158ドル」のように億・兆を落とす。
+    Google の文字起こしは大きな金額を数字に直すときに億・兆を落とすことがあるため（2026-11-19 に確認）、
+    聞き取り結果と比べるときの「もう一つの正解」として使う。"""
+    return BIG_RE.sub(lambda m: m.group(1), nfkc(text))
+
+
+def big_numbers_to_kana(text: str) -> str:
+    """億・兆の付く数字だけをカタカナの読みにする（音声に確実に億・兆を読ませるため）。"""
+    return NUM_RE.sub(lambda m: number_to_kana(m) if m.group(3) in ("億", "兆") else m.group(0), text)
+
+
 def numbers_in(text: str, min_digits: int = 2) -> list[tuple[str, str]]:
     """チェック対象の数字（2桁以上か、万・億・兆付き）と、その読み。"""
     out = []
