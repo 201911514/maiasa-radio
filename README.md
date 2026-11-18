@@ -51,7 +51,7 @@
 ## 使い方
 
 ```bash
-pip install -r requirements.txt
+pip install --use-pep517 -r requirements.txt
 ```
 
 ```bash

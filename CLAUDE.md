@@ -18,7 +18,7 @@
 ## 毎朝の手順（定期実行）
 
 ### 0. 準備
-1. `pip install -r requirements.txt`
+1. `pip install --use-pep517 -r requirements.txt`（`--use-pep517` を付けないと、読みの辞書部品 unidic-lite のインストールに失敗することがある）
 2. 今日の日付と曜日を日本時間で確かめる：`TZ=Asia/Tokyo date '+%F %a'`
 3. `config.json` の `schedule`（月曜が先頭）で今日のテーマを確かめる。**日曜は何もせず終了**する。
 4. `site/data/index.json` に今日の回が「公開OK」で載っていれば、何もせず終了する（二重に作らない）。
