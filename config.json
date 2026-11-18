@@ -8,5 +8,66 @@
  "max_attempts": 3,
  "strict_prepare": true,
  "stt": "google",
- "whisper_model": "medium"
+ "whisper_model": "medium",
+ "listen_time": "05:30",
+ "target_chars": 1700,
+ "keep_audio_days": 14,
+ "artifact_url": "https://claude.ai/artifact/FvQbsErriHJQjQodhqGV5x",
+ "schedule": [
+  {
+   "day": "月",
+   "theme": "ai",
+   "label": "AI",
+   "note": "AIニュース＋世界の1分"
+  },
+  {
+   "day": "火",
+   "theme": "eco",
+   "label": "経済",
+   "note": "経済ニュース＋世界の1分"
+  },
+  {
+   "day": "水",
+   "theme": "world",
+   "label": "世界",
+   "note": "世界ニュース特集"
+  },
+  {
+   "day": "木",
+   "theme": "ai",
+   "label": "AI",
+   "note": "AIニュース＋世界の1分"
+  },
+  {
+   "day": "金",
+   "theme": "eco",
+   "label": "経済",
+   "note": "経済ニュース＋世界の1分"
+  },
+  {
+   "day": "土",
+   "theme": "sum",
+   "label": "まとめ",
+   "note": "今週のまとめ＋クイズ"
+  },
+  {
+   "day": "日",
+   "theme": "off",
+   "label": "お休み",
+   "note": "番組はお休み"
+  }
+ ],
+ "tags": [
+  "AI規制・教育",
+  "AIの安全・信頼",
+  "AIビジネス・資金",
+  "AI技術・製品",
+  "為替・金利",
+  "株式市場",
+  "企業決算",
+  "日本経済",
+  "米国政治",
+  "国際情勢",
+  "日本への影響"
+ ]
 }

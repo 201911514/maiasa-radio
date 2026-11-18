@@ -80,6 +80,11 @@ class WhisperSTT:
         return "".join(s.text for s in segs)
 
 
+def wav_seconds(wav: bytes) -> float:
+    with wave.open(io.BytesIO(wav)) as r:
+        return r.getnframes() / r.getframerate()
+
+
 def concat_wavs(parts: list[bytes], gap_sec: float = 0.35) -> bytes:
     """同じ形式の WAV をつなぎ、行の間に短い無音を入れる。"""
     out = io.BytesIO()

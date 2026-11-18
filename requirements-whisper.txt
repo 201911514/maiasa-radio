@@ -1,0 +1,2 @@
+# 文字起こしを Whisper で行う場合（モデルを Hugging Face から取得できる環境だけ）
+faster-whisper>=1.0

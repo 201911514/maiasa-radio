@@ -1,0 +1,72 @@
+{
+ "episodes": [
+  {
+   "date": "2026-11-05",
+   "weekday": "木",
+   "theme": "ai",
+   "title": "11月5日（木） AIの回",
+   "subtitle": "＋世界の1分ニュース",
+   "topics": [
+    "Google、学校のAIと検索",
+    "Anthropicの「FlashProve」",
+    "OpenAI、資金調達の目標を下げる",
+    "世界の1分：米中間選挙"
+   ],
+   "status": "公開OK",
+   "duration": 254.22,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 39,
+    "rechecked": 1,
+    "words": 20
+   }
+  }
+ ],
+ "schedule": [
+  {
+   "day": "月",
+   "theme": "ai",
+   "label": "AI",
+   "note": "AIニュース＋世界の1分"
+  },
+  {
+   "day": "火",
+   "theme": "eco",
+   "label": "経済",
+   "note": "経済ニュース＋世界の1分"
+  },
+  {
+   "day": "水",
+   "theme": "world",
+   "label": "世界",
+   "note": "世界ニュース特集"
+  },
+  {
+   "day": "木",
+   "theme": "ai",
+   "label": "AI",
+   "note": "AIニュース＋世界の1分"
+  },
+  {
+   "day": "金",
+   "theme": "eco",
+   "label": "経済",
+   "note": "経済ニュース＋世界の1分"
+  },
+  {
+   "day": "土",
+   "theme": "sum",
+   "label": "まとめ",
+   "note": "今週のまとめ＋クイズ"
+  },
+  {
+   "day": "日",
+   "theme": "off",
+   "label": "お休み",
+   "note": "番組はお休み"
+  }
+ ],
+ "listen_time": "05:30",
+ "updated": "2026-11-18T09:33+09:00"
+}

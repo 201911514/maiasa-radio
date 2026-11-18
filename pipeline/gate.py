@@ -73,8 +73,15 @@ def run(ep_path: Path, cfg: dict, rd: ReadingDict, tts=None, stt=None, simulate:
     passed = not report["failed"]
     report["status"] = "公開OK" if passed else "公開保留"
     if out_dir and simulate is None:
-        from .backends import concat_wavs
+        from .backends import concat_wavs, wav_seconds
         out_dir.mkdir(parents=True, exist_ok=True)
+        # 字幕を音声に合わせるため、各行の開始・終了（秒）を記録する（行の間の無音 0.35 秒込み）
+        t, report["timings"] = 0.0, []
+        for w in audio_parts:
+            d = wav_seconds(w)
+            report["timings"].append([round(t, 2), round(t + d, 2)])
+            t += d + 0.35
+        report["duration"] = round(t - 0.35, 2)
         if passed:
             (out_dir / "episode.wav").write_bytes(concat_wavs(audio_parts))
         else:  # 公開はしないが、人が聞いて確かめられるよう確認用の音声を残す
