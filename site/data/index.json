@@ -1,6 +1,28 @@
 {
  "episodes": [
   {
+   "date": "2026-11-20",
+   "weekday": "金",
+   "theme": "eco",
+   "title": "11月20日（金） 経済の回",
+   "subtitle": "＋世界の1分ニュース",
+   "topics": [
+    "円安、1ドル159円台後半に",
+    "Anthropic、過去最大の上場",
+    "日本のGDP、1年ぶりマイナス",
+    "世界の1分：米中ロ首脳会談"
+   ],
+   "status": "公開OK",
+   "duration": 279.71,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 56,
+    "rechecked": 3,
+    "words": 57
+   }
+  },
+  {
    "date": "2026-11-19",
    "weekday": "木",
    "theme": "ai",
@@ -51,7 +73,7 @@
    ],
    "status": "公開OK",
    "duration": 254.22,
-   "audio": true,
+   "audio": false,
    "check": {
     "status": "公開OK",
     "lines": 39,
@@ -105,5 +127,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-19T04:31+09:00"
+ "updated": "2026-11-20T04:31+09:00"
 }
