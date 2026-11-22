@@ -1,0 +1,547 @@
+{
+ "date": "2026-11-23",
+ "theme": "ai",
+ "title": "11月23日（月） AIの回",
+ "subtitle": "＋世界の1分ニュース",
+ "chapters": [
+  {
+   "key": "op",
+   "short": "オープニング",
+   "slide": {
+    "type": "agenda",
+    "eyebrow": "11月23日（月） ・ AIの回",
+    "title": "きょうの内容",
+    "items": [
+     [
+      "AIと「リーマン予想」の証明",
+      "AI"
+     ],
+     [
+      "エヌビディアの会計に調査",
+      "AI"
+     ],
+     [
+      "海外のデータセンターに課税？",
+      "AI"
+     ],
+     [
+      "世界の1分：COP31",
+      "世界"
+     ]
+    ]
+   }
+  },
+  {
+   "key": "t1",
+   "short": "リーマン予想",
+   "label": "AIと「リーマン予想」の証明",
+   "tags": [
+    "AI技術・製品"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "AI ・ 話題 1/3",
+    "title": "数学の難問「リーマン予想」、AIと証明？",
+    "points": [
+     "Anthropicの数学者が、Claudeと証明を見つけたと発表",
+     "専門家による本格的な検証は、これから",
+     "AIの長い説明を人間が理解できるか、という声も"
+    ],
+    "src": "出典：Washington Post・Science（11月20日）"
+   },
+   "sources": [
+    {
+     "title": "Washington Post（11月20日）Anthropicの数学者、リーマン予想の解決を主張",
+     "url": "https://www.washingtonpost.com/technology/2026/11/20/using-anthropic-ai-mathematician-claims-have-solved-riemann-hypothesis/"
+    },
+    {
+     "title": "Science　AIは数学最大の謎を解いたのか",
+     "url": "https://www.science.org/content/article/ai-may-have-solved-math-s-greatest-mystery-can-humans-understand-answer"
+    },
+    {
+     "title": "Scientific American　Anthropicの数学者とリーマン予想",
+     "url": "https://www.scientificamerican.com/article/anthropic-mathematician-claims-to-prove-riemann-hypothesis-most-famous-problem-in-all-of-math/"
+    }
+   ]
+  },
+  {
+   "key": "t2",
+   "short": "エヌビディア調査",
+   "label": "エヌビディアの会計に調査",
+   "tags": [
+    "AIビジネス・資金"
+   ],
+   "slide": {
+    "type": "big",
+    "eyebrow": "AI ・ 話題 2/3",
+    "title": "米当局がエヌビディアの会計を調査と報道",
+    "num": "−13%",
+    "unit": "前後",
+    "lbl": "報道のあと、金曜の株価の下げ幅",
+    "src": "出典：Reuters・Bloomberg（11月20日）"
+   },
+   "sources": [
+    {
+     "title": "Bloomberg（11月20日）米SEC、エヌビディアの会計を調査とロイター報道",
+     "url": "https://www.bloomberg.com/news/articles/2026-11-20/wall-street-regulator-probing-nvidia-s-accounting-reuters-says"
+    },
+    {
+     "title": "Reuters（Investing.com掲載）SECの調査、エヌビディアの会計に焦点",
+     "url": "https://www.investing.com/news/economy-news/exclusiveus-secs-nvidia-probe-is-examining-potential-accounting-issues-sources-say-5042460"
+    }
+   ]
+  },
+  {
+   "key": "t3",
+   "short": "データセンター",
+   "label": "海外のデータセンターに課税？",
+   "tags": [
+    "AI規制・教育"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "AI ・ 話題 3/3",
+    "title": "トランプ氏、海外のAIデータセンターに課税を警告",
+    "points": [
+     "米企業が海外に作るなら、大きな税金をかけると発言",
+     "AIの拠点と雇用を米国内に集めたい考え",
+     "日本でのデータセンター計画にも影響の可能性"
+    ],
+    "src": "出典：Fox News・MS NOW（11月20日）"
+   },
+   "sources": [
+    {
+     "title": "Fox News　トランプ大統領、会見でAIについて発言",
+     "url": "https://www.foxnews.com/live-news/trump-to-meet-xi-in-shenzhen-ahead-of-high-stakes-trilateral-talks-with-putin"
+    },
+    {
+     "title": "MS NOW　トランプ大統領の記者会見（AIデータセンター）",
+     "url": "https://www.ms.now/liveblog/trump-press-conference-xi-putin-summit-live-updates"
+    }
+   ]
+  },
+  {
+   "key": "w",
+   "short": "世界の1分",
+   "label": "世界の1分：COP31",
+   "tags": [
+    "国際情勢"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "世界の1分",
+    "title": "COP31、合意文書を採択できず閉幕",
+    "points": [
+     "化石燃料の扱いで意見がまとまらず",
+     "全会一致の仕組みで、一部の反対でも決まらない",
+     "温暖化対策の難しさが浮き彫りに"
+    ],
+    "src": "出典：CBS News（11月22日）"
+   },
+   "sources": [
+    {
+     "title": "CBS News　COP31、合意なく閉幕",
+     "url": "https://www.cbsnews.com/news/un-cop31-climate-conference-ends-no-agreement-fossil-fuel-debate-standstill/"
+    },
+    {
+     "title": "Al-Monitor　COP31、最終合意に近いと議長",
+     "url": "https://www.al-monitor.com/originals/2026/11/cop31-climate-talks-close-final-deal-says-summit-president"
+    }
+   ]
+  },
+  {
+   "key": "ed",
+   "short": "エンディング",
+   "slide": {
+    "type": "ending",
+    "eyebrow": "エンディング",
+    "title": "今日のクイズ",
+    "quiz": "AIの助けで証明したと発表された数学の難問は？",
+    "next": "明日 11月24日（火）は経済の回"
+   }
+  }
+ ],
+ "lines": [
+  {
+   "chapter": "op",
+   "speaker": "sora",
+   "text": "おはようございます。11月23日、月曜日の「毎朝5分ラジオ」です。今日はAIの回です。",
+   "yomi": {
+    "今日": "きょう",
+    "5分": "ごふん"
+   }
+  },
+  {
+   "chapter": "op",
+   "speaker": "hal",
+   "text": "おはようございます、解説のハルです。今日はAIの話題を3つと、最後に「世界の1分ニュース」をお届けします。",
+   "yomi": {
+    "今日": "きょう",
+    "1分": "いっぷん"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "では1つ目、お願いします。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "数学の世界で、大きなニュースがありました。「リーマン予想」という難問を、AIの助けを借りて証明したという発表です。",
+   "yomi": {
+    "予想": "よそう"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "リーマン予想って、聞いたことはありますけど、どんな問題なんですか？",
+   "yomi": {
+    "予想": "よそう"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "素数の並び方に、隠れた規則があるかどうかを問う問題です。長い間、世界中の数学者が挑んでも解けませんでした。",
+   "yomi": {
+    "並び方": "ならびかた",
+    "間": "あいだ"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "そんな難問を、AIが解いたんですか？"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "発表したのは、AIの会社、アンソロピックの数学者です。AIのクロードと一緒に証明を見つけた、としています。",
+   "yomi": {
+    "一緒": "いっしょ"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "どうしてAIが、そんな難しい問題に役立つんでしょう。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "AIは、膨大な数の考え方を試したり、計算の誤りを見つけたりするのが得意です。数学者の相棒として使われ始めています。",
+   "yomi": {
+    "膨大": "ぼうだい",
+    "考え方": "かんがえかた",
+    "相棒": "あいぼう"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "すごい時代になりましたね。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "証明は、コンピューターで正しさを確かめられる形でも示されていて、外部の数学者も、その確認を試みたと報じられています。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "じゃあ、もう決まりなんですね。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "まだ、そうとは言えません。専門家による本格的な検証は、これからです。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "AIが書いた説明はとても長く、人間が中身を理解できるのか、という声も出ています。",
+   "yomi": {
+    "中身": "なかみ"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "正しいかどうか、人間が理解できないこともあるんですね。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "はい。同じ時期に、AIを使わずに証明を作ったという別の研究者の発表もあり、今後の検証が注目されます。",
+   "yomi": {
+    "今後": "こんご"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "2つ目は？"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "エヌビディアの続報です。アメリカの証券取引委員会が、エヌビディアの会計を調べていると、ロイター通信が報じました。",
+   "yomi": {
+    "会計": "かいけい"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "証券取引委員会って、どんなところなんですか？"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "株の取引が公正に行われているかを見張る、アメリカの役所です。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "会計を調べるって、何か問題があったんでしょうか。",
+   "yomi": {
+    "何か": "なにか"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "調べている中身や、いつから始まったのかは、まだ分かっていません。エヌビディア側も、詳しい説明はしていません。",
+   "yomi": {
+    "中身": "なかみ"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "株価への影響はありましたか？",
+   "yomi": {
+    "株価": "かぶか"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "金曜の取引で、エヌビディアの株は13%ほど下がったと伝えられています。",
+   "yomi": {
+    "13%": "じゅうさんパーセント"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "創業者の辞任とも、関係があるんですか？"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "そこは、まだ分かっていません。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "ただ、カリフォルニア州も、エヌビディアの半導体が中国に渡っていないか、調べ始めたと報じられています。",
+   "yomi": {
+    "中国": "ちゅうごく"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "先週は、創業者がトップを辞めたあとの初めての決算で、好調な数字を出したばかりでした。",
+   "yomi": {
+    "先週": "せんしゅう",
+    "初めて": "はじめて"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "好調な決算のあとに、今度は調査ですか。",
+   "yomi": {
+    "今度": "こんど"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "AI向けの半導体の代表的な会社なので、この先の調査の行方は、AIの株全体にも影響しそうです。",
+   "yomi": {
+    "行方": "ゆくえ",
+    "全体": "ぜんたい"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "3つ目は、データセンターの話だそうですね。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "はい。トランプ大統領が、金曜の記者会見で、AIのデータセンターについて発言しました。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "アメリカの企業が、データセンターを海外に作るなら、大きな税金をかけると警告したと報じられています。",
+   "yomi": {
+    "大きな": "おおきな"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "データセンターって、AIを動かすための、たくさんのコンピューターを置く建物ですよね。",
+   "yomi": {
+    "建物": "たてもの"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "そうです。たくさんの電気を使うので、電気代が安い国や地域に作る動きもありました。",
+   "yomi": {
+    "電気代": "でんきだい"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "海外に作られると、何が困るんでしょう。",
+   "yomi": {
+    "何": "なに"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "トランプ大統領は、AIの拠点や働く場所を、アメリカ国内に集めたいと考えているようです。",
+   "yomi": {
+    "拠点": "きょてん"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "ほかの国は、どう受け止めているんですか？"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "まだ、はっきりした反応は出ていません。ただ、データセンターを呼び込みたい国にとっては、気になる発言でしょう。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "日本には、関係ありますか？"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "アメリカの企業は、日本でもデータセンターづくりを進めています。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "どんな仕組みになるのか、注意して見ていく必要がありそうです。"
+  },
+  {
+   "chapter": "w",
+   "speaker": "sora",
+   "text": "最後は「世界の1分ニュース」です。",
+   "yomi": {
+    "1分": "いっぷん"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "トルコで開かれていた、国連の気候変動の会議「COP31」が、日曜に閉幕しました。",
+   "yomi": {
+    "COP31": "コップさんじゅういち"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "sora",
+   "text": "何か合意できたんですか？",
+   "yomi": {
+    "何か": "なにか"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "最終的な合意文書は、採択できませんでした。石油や石炭などの化石燃料をどうするかで、意見がまとまらなかったんです。",
+   "yomi": {
+    "石炭": "せきたん"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "sora",
+   "text": "化石燃料をめぐる対立は、根深いんですね。",
+   "yomi": {
+    "根深い": "ねぶかい"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "すべての国の賛成が必要な仕組みのため、一部の国が反対すると、まとまりません。",
+   "yomi": {
+    "一部": "いちぶ"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "温暖化対策の難しさが、改めて浮き彫りになりました。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "sora",
+   "text": "今日のクイズです。AIの助けを借りて証明したと発表された、数学の難問は何でしょう？",
+   "yomi": {
+    "今日": "きょう",
+    "何": "なん"
+   }
+  },
+  {
+   "chapter": "ed",
+   "speaker": "hal",
+   "text": "答えは、ページの下のクイズで確かめてください。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "sora",
+   "text": "気になった話題には「興味あり」、いまいちだったら「興味なし」を押してくださいね。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "hal",
+   "text": "それではまた明日。明日、火曜日は経済の回です。",
+   "yomi": {
+    "明日": "あした"
+   }
+  }
+ ],
+ "quiz": {
+  "q": "AIの助けを借りて証明したと発表された、数学の難問は？",
+  "options": [
+   "フェルマーの最終定理",
+   "リーマン予想",
+   "ポアンカレ予想"
+  ],
+  "answer": 1,
+  "explain": "Anthropicの数学者が、Claudeと一緒にリーマン予想の証明を見つけたと発表しました。専門家の検証はこれからです。"
+ }
+}
