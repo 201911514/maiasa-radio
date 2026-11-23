@@ -43,11 +43,15 @@ def run(ep_path: Path, cfg: dict, rd: ReadingDict, tts=None, stt=None, simulate:
         text, attempts, wav = line["tts_text"], [], None
         yomi = ep["lines"][line["i"]].get("yomi")
         for n in range(cfg["max_attempts"]):
+            # 最後の作り直しだけは、話す速さを retry_slow_rate（標準 1.0 倍）に落として、はっきり読ませる。
+            # 速い読み上げで文字起こしが聞き間違え、正しい回まで公開保留になるのを減らすため（2026-11-23）
+            slow = n == cfg["max_attempts"] - 1 and n > 0 and cfg.get("retry_slow_rate")
+            rate = cfg["retry_slow_rate"] if slow else None
             if simulate is not None:
                 tries = simulate.get(str(line["i"]), [line["text"]])
                 heard, wav = tries[min(n, len(tries) - 1)], None
             else:
-                wav = tts.synthesize(text, line["speaker"])
+                wav = tts.synthesize(text, line["speaker"], rate=rate)
                 heard = stt.transcribe(wav)
             res = check_line(line["text"], text, heard, rd, cfg["min_ratio"], yomi)
             alt = None
@@ -58,7 +62,7 @@ def run(ep_path: Path, cfg: dict, rd: ReadingDict, tts=None, stt=None, simulate:
                     alt = {"heard": heard_alt, **{k: res_alt[k] for k in ("ok", "ratio", "issues")}}
                     if res_alt["ok"]:
                         res = res_alt  # heard は1回目の聞き取りのまま残し、alt に合格した聞き取りを残す
-            attempts.append({"tts_text": text, "heard": heard, "alt": alt,
+            attempts.append({"tts_text": text, "heard": heard, "alt": alt, "rate": rate or cfg.get("speaking_rate", 1.0),
                              **{k: res[k] for k in ("ok", "ratio", "issues")}})
             if res["ok"]:
                 break

@@ -37,12 +37,13 @@ class GoogleTTS:
     def __init__(self, voices: dict[str, str], speaking_rate: float = 1.0):
         self.voices, self.rate = voices, speaking_rate
 
-    def synthesize(self, text: str, speaker: str) -> bytes:
-        """16bit・24kHz・モノラルの WAV を返す。"""
+    def synthesize(self, text: str, speaker: str, rate: float | None = None) -> bytes:
+        """16bit・24kHz・モノラルの WAV を返す。rate を渡すと、その行だけ話す速さを変える。"""
         res = _post("https://texttospeech.googleapis.com/v1/text:synthesize", {
             "input": {"text": text},
             "voice": {"languageCode": "ja-JP", "name": self.voices[speaker]},
-            "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SAMPLE_RATE, "speakingRate": self.rate},
+            "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SAMPLE_RATE,
+                            "speakingRate": rate or self.rate},
         })
         return base64.b64decode(res["audioContent"])
 

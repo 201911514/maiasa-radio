@@ -93,6 +93,7 @@ python -m pipeline.gate episodes/2026-11-05.json
 | `voices` | 話し手ごとの声。解説役ハル＝Charon、聞き役ソラ＝Leda（2026年11月18日、サンプルを聞いて決定）。ほかの声は `--list-voices` で確認できる |
 | `min_ratio` | 全体の一致率の合格ライン（0.93） |
 | `max_attempts` | 1行あたりの作り直し回数の上限（3） |
+| `retry_slow_rate` | 最後の作り直しで使う話す速さ（1.0）。速い読み上げで文字起こしが聞き間違えるのを減らす |
 | `stt` | 文字起こし。`google`（標準。Speech-to-Text）か `whisper`（無料。モデルを取得できる環境だけ） |
 
 ## 毎朝の自動化での置き場所

@@ -114,6 +114,33 @@ class Check(unittest.TestCase):
         self.assertIn("しじょう", fix_text(tts, r, RD))
 
 
+class SlowRetry(unittest.TestCase):
+    """何度作り直しても不合格になる行は、最後だけ話す速さを落として作り直す（2026-11-23）。"""
+
+    def test_last_attempt_is_slower_and_can_pass(self):
+        import tempfile
+        text = "今月12日にも、相場が大きく動きました。"
+        rates = []
+
+        class TTS:
+            def synthesize(self, t, speaker, rate=None):
+                rates.append(rate)
+                return b"wav"
+
+        class STT:  # 速いと聞き間違え、ゆっくりなら正しく聞き取る、という実際の様子をまねる
+            def transcribe(self, wav):
+                return text if rates[-1] == 1.0 else "今月中に日にも、相場が大きく動きました。"
+
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "ep.json"
+            p.write_text(json.dumps({"date": "2026-11-23", "lines": [
+                {"chapter": "op", "speaker": "hal", "text": text, "yomi": {"12日": "じゅうににち"}}]}, ensure_ascii=False), encoding="utf-8")
+            code, rep = run(p, dict(CFG, max_attempts=3, retry_slow_rate=1.0), RD, tts=TTS(), stt=STT(), out_dir=None)
+        self.assertEqual(code, 0, rep["lines"])
+        self.assertEqual(rates, [None, None, 1.0])
+        self.assertEqual(rep["lines"][0]["attempts"][-1]["rate"], 1.0)
+
+
 class Feed(unittest.TestCase):
     def _root(self, tmp: Path) -> Path:
         cfg = dict(CFG, feed_base_url="https://example.github.io/maiasa-radio", artifact_url="https://claude.ai/artifact/x")

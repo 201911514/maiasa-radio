@@ -70,5 +70,6 @@
   "国際情勢",
   "日本への影響"
  ],
- "feed_base_url": "https://201911514.github.io/maiasa-radio"
+ "feed_base_url": "https://201911514.github.io/maiasa-radio",
+ "retry_slow_rate": 1.0
 }
