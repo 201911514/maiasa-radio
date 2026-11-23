@@ -1,6 +1,28 @@
 {
  "episodes": [
   {
+   "date": "2026-11-24",
+   "weekday": "火",
+   "theme": "eco",
+   "title": "11月24日（火） 経済の回",
+   "subtitle": "＋世界の1分ニュース",
+   "topics": [
+    "フアン氏が復帰、米株急反発",
+    "日経平均、3000円超の急落",
+    "AI業界の「お金の回し合い」",
+    "世界の1分：ウクライナ"
+   ],
+   "status": "公開OK",
+   "duration": 271.5,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 54,
+    "rechecked": 2,
+    "words": 42
+   }
+  },
+  {
    "date": "2026-11-23",
    "weekday": "月",
    "theme": "ai",
@@ -164,5 +186,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-23T19:01+09:00"
+ "updated": "2026-11-24T04:31+09:00"
 }
