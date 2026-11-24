@@ -1,0 +1,525 @@
+{
+ "date": "2026-11-25",
+ "theme": "world",
+ "title": "11月25日（水） 世界ニュース特集",
+ "subtitle": "世界の話題を3つ、じっくり",
+ "chapters": [
+  {
+   "key": "op",
+   "short": "オープニング",
+   "slide": {
+    "type": "agenda",
+    "eyebrow": "11月25日（水） ・ 世界ニュース特集",
+    "title": "きょうの内容",
+    "items": [
+     [
+      "ホルムズ海峡、タンカーに被害",
+      "世界"
+     ],
+     [
+      "ポーランドにロシアのミサイル",
+      "世界"
+     ],
+     [
+      "ガザ、冬の雨でテントが浸水",
+      "世界"
+     ]
+    ]
+   }
+  },
+  {
+   "key": "t1",
+   "short": "ホルムズ海峡",
+   "label": "ホルムズ海峡、タンカーに被害",
+   "tags": [
+    "国際情勢",
+    "日本への影響"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "世界 ・ 話題 1/3",
+    "title": "ホルムズ海峡で、タンカーが機雷に触れたとイランが主張",
+    "points": [
+     "米軍の護衛下の船が被害、と革命防衛隊",
+     "機雷の主張は確認されていないとの見方も",
+     "日本の原油の多くが通る海。燃料価格に影響のおそれ"
+    ],
+    "src": "出典：CNBC・Jerusalem Post（11月24日）"
+   },
+   "sources": [
+    {
+     "title": "CNBC（11月24日）イラン、米護衛下のタンカー3隻が機雷に触れたと主張",
+     "url": "https://www.cnbc.com/2026/11/24/iran-trump-hormuz-crude-.html"
+    },
+    {
+     "title": "Jerusalem Post　革命防衛隊、タンカーが機雷で爆発と発表",
+     "url": "https://www.jpost.com/middle-east/iran-news/article-915899"
+    },
+    {
+     "title": "Marine Insight　ホルムズ海峡の機雷の主張と、UKMTOの報告",
+     "url": "https://www.marineinsight.com/iran-claims-tankers-hit-mines-strait-of-hormuz/"
+    }
+   ]
+  },
+  {
+   "key": "t2",
+   "short": "ポーランド",
+   "label": "ポーランドにロシアのミサイル",
+   "tags": [
+    "国際情勢"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "世界 ・ 話題 2/3",
+    "title": "ポーランドにロシアのミサイル、NATOが非難",
+    "points": [
+     "ミサイル3発が落下。けが人や被害はなし",
+     "NATOトップ「重大な領空侵犯」",
+     "警戒機を送り、守りを固める"
+    ],
+    "src": "出典：PBS・Stars and Stripes（11月22日）"
+   },
+   "sources": [
+    {
+     "title": "PBS NewsHour　NATO、ポーランドへのロシアのミサイル落下を「重大な領空侵犯」と非難",
+     "url": "https://www.pbs.org/newshour/world/nato-calls-russian-missiles-landing-in-poland-a-grave-violation-of-airspace"
+    },
+    {
+     "title": "Stars and Stripes（11月22日）NATOが緊急協議",
+     "url": "https://www.stripes.com/theaters/europe/2026-11-22/poland-russia-nato-missiles-23541547.html"
+    },
+    {
+     "title": "Washington Times（11月22日）NATOが対応を検討",
+     "url": "https://www.washingtontimes.com/news/2026/nov/22/north-atlantic-council-meet-missiles-land-poland/"
+    }
+   ]
+  },
+  {
+   "key": "t3",
+   "short": "ガザの冬",
+   "label": "ガザ、冬の雨でテントが浸水",
+   "tags": [
+    "国際情勢"
+   ],
+   "slide": {
+    "type": "big",
+    "eyebrow": "世界 ・ 話題 3/3",
+    "title": "ガザ、冬の雨で避難生活のテントが浸水",
+    "num": "2万6000世帯",
+    "unit": "以上",
+    "lbl": "浸水の被害を受けた世帯（国連など）",
+    "src": "出典：国連・IRC・Quartz（11月）"
+   },
+   "sources": [
+    {
+     "title": "国連ニュース　ガザの大雨でテントが浸水、子どもも犠牲に",
+     "url": "https://news.un.org/en/story/2026/11/1168766"
+    },
+    {
+     "title": "IRC（国際救済委員会）ガザで2万6000世帯が浸水",
+     "url": "https://www.rescue.org/press-release/least-5-dead-26000-households-flooded-people-gaza-face-fourth-winter-tents"
+    },
+    {
+     "title": "Quartz（11月22日）ガザの雨、テントが浸水",
+     "url": "https://qz.com/gaza-rains-flood-tents-kill-four-winter-supplies-112226"
+    }
+   ]
+  },
+  {
+   "key": "ed",
+   "short": "エンディング",
+   "slide": {
+    "type": "ending",
+    "eyebrow": "エンディング",
+    "title": "今日のクイズ",
+    "quiz": "ロシアのミサイルが落ちた、NATOの加盟国は？",
+    "next": "明日 11月26日（木）はAIの回"
+   }
+  }
+ ],
+ "lines": [
+  {
+   "chapter": "op",
+   "speaker": "sora",
+   "text": "おはようございます。11月25日、水曜日の「毎朝5分ラジオ」です。今日は世界ニュース特集の回です。",
+   "yomi": {
+    "今日": "きょう",
+    "5分": "ごふん"
+   }
+  },
+  {
+   "chapter": "op",
+   "speaker": "hal",
+   "text": "おはようございます、解説のハルです。今日は世界の話題を3つ、少しじっくりお届けします。",
+   "yomi": {
+    "今日": "きょう"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "では1つ目、お願いします。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "中東のホルムズ海峡です。イランの革命防衛隊が、石油を運ぶタンカーが機雷に触れて、火災が起きたと発表しました。",
+   "yomi": {
+    "機雷": "きらい"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "機雷って、海に仕掛ける爆弾のことですよね。",
+   "yomi": {
+    "機雷": "きらい"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "そうです。イラン側は、アメリカ軍に守られて通っていた船が被害を受けた、と主張しています。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "本当に、そんなことが起きているんですか？"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "そこは、はっきりしていません。周辺の海の安全を見ている機関は、機雷の主張は確認できていないとしています。",
+   "yomi": {
+    "機雷": "きらい",
+    "機関": "きかん"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "一方で、何かが飛んできて船に当たったという報告もあり、危険な状態が続いているのは確かです。",
+   "yomi": {
+    "何か": "なにか"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "どうして、こんなに緊張が高まっているんでしょう。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "アメリカとイランの戦争が続く中、アメリカはイランの港を海上で封鎖しています。",
+   "yomi": {
+    "中": "なか"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "イランは、あらゆる手段で対抗すると言っています。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "封鎖って、船の出入りを止めることですか？",
+   "yomi": {
+    "出入り": "でいり"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "はい。イランの石油を外に売らせないための措置です。アメリカは、イランへの制裁も広げました。",
+   "yomi": {
+    "外": "そと",
+    "措置": "そち"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "日本にとっても、大事な海ですよね。",
+   "yomi": {
+    "大事": "だいじ"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "はい。日本が輸入する原油の多くが、この海峡を通ります。",
+   "yomi": {
+    "原油": "げんゆ",
+    "多く": "おおく"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "海峡を通る船は大きく減っていると伝えられていて、ガソリン代などへの影響が心配です。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "話し合いの動きは、ないんですか？"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "カタールの首相が、アメリカとイランの話し合いを再開させようと動いていると伝えられています。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "2つ目は、ヨーロッパの話ですね。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "はい。ポーランドの領土に、ロシアのミサイルが落ちました。ポーランドの検察は、3発のミサイルだったと確認しています。",
+   "yomi": {
+    "3発": "さんぱつ"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "えっ、けが人は出たんですか？"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "幸い、けが人や被害は出ていないそうです。ウクライナを狙ったミサイルが、国境を越えたとみられます。",
+   "yomi": {
+    "幸い": "さいわい"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "ミサイルが落ちたのは、初めてじゃないんですか？",
+   "yomi": {
+    "初めて": "はじめて"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "ことしの夏にも、ロシアのミサイルがポーランドに落ちたと報じられています。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "ポーランドは、NATOの加盟国ですよね。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "そうです。NATOは、アメリカやヨーロッパの国々が、お互いを守り合う同盟です。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "仲間の国が攻撃されたら、みんなで守るんですよね。",
+   "yomi": {
+    "仲間": "なかま"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "はい。そのため、ロシアとの直接の衝突につながりかねないと、緊張が走りました。",
+   "yomi": {
+    "直接": "ちょくせつ"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "NATOのトップは「重大な領空侵犯だ」と非難し、ポーランドの領土を一歩も渡さないと強調しました。",
+   "yomi": {
+    "領空侵犯": "りょうくうしんぱん",
+    "一歩": "いっぽ"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "ほかの国との関係も、ぴりぴりしているんですか？"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "ロシアは、バルト海に面したエストニアが、ウクライナの無人機に空を使わせていると非難しています。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "NATOは、空から広く見張る警戒機をポーランドに送り、守りを固めています。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "偶然の出来事が、大きな衝突につながらないか心配されています。",
+   "yomi": {
+    "偶然": "ぐうぜん",
+    "出来事": "できごと"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "日本から見ても、気になる動きですね。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "はい。ヨーロッパの安全は、ウクライナの戦争の行方や、世界の経済にも関わってきます。",
+   "yomi": {
+    "行方": "ゆくえ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "3つ目は、ガザの話だそうですね。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "はい。パレスチナのガザでは、冬の雨で、避難している人たちのテントが水につかる被害が広がっています。",
+   "yomi": {
+    "冬": "ふゆ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "テントで暮らしている人が、そんなに多いんですか？",
+   "yomi": {
+    "多い": "おおい"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "戦闘で家を失い、多くの人がテントで暮らしています。国連などによると、少なくとも2万6000世帯が浸水の被害を受けました。",
+   "yomi": {
+    "多く": "おおく",
+    "2万6000世帯": "にまんろくせんせたい",
+    "浸水": "しんすい"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "雨を防げないなんて、つらいですね。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "崩れた土砂がテントを押しつぶし、子どもを含む人たちが亡くなったとも報じられています。",
+   "yomi": {
+    "土砂": "どしゃ",
+    "含む": "ふくむ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "支援の物資は、届いていないんですか？"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "国連によると、ガザの中にあるテントや毛布などの蓄えは、ほとんど底をついています。",
+   "yomi": {
+    "毛布": "もうふ",
+    "蓄え": "たくわえ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "外には、すぐに運び込めるテントが用意されています。",
+   "yomi": {
+    "外": "そと"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "ただ、イスラエルによる制限などで、思うように入れられないと指摘されています。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "冬は、これからもっと寒くなりますよね。",
+   "yomi": {
+    "冬": "ふゆ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "はい。暖房の燃料も足りず、病気の広がりも心配です。医師たちは、髄膜炎の流行にも注意を呼びかけています。",
+   "yomi": {
+    "髄膜炎": "ずいまくえん"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "戦闘は、もう落ち着いているんですか？"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "停戦の合意はありますが、イスラエルの空爆で人が亡くなる出来事も続いています。本格的な冬を前に、支援が急がれます。",
+   "yomi": {
+    "出来事": "できごと",
+    "冬": "ふゆ",
+    "前": "まえ"
+   }
+  },
+  {
+   "chapter": "ed",
+   "speaker": "sora",
+   "text": "今日のクイズです。ロシアのミサイルが落ちて、NATOが「重大な領空侵犯」と非難した国は、どこでしょう？",
+   "yomi": {
+    "今日": "きょう",
+    "領空侵犯": "りょうくうしんぱん"
+   }
+  },
+  {
+   "chapter": "ed",
+   "speaker": "hal",
+   "text": "答えは、ページの下のクイズで確かめてください。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "sora",
+   "text": "気になった話題には「興味あり」、いまいちだったら「興味なし」を押してくださいね。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "hal",
+   "text": "それではまた明日。明日、木曜日はAIの回です。",
+   "yomi": {
+    "明日": "あした"
+   }
+  }
+ ],
+ "quiz": {
+  "q": "ロシアのミサイルが落ちて、NATOが「重大な領空侵犯」と非難した国は？",
+  "options": [
+   "ポーランド",
+   "フィンランド",
+   "ドイツ"
+  ],
+  "answer": 0,
+  "explain": "ポーランドの領土にロシアのミサイルが落ちました。けが人や被害はなかったとされています。"
+ }
+}

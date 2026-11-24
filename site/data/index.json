@@ -1,6 +1,27 @@
 {
  "episodes": [
   {
+   "date": "2026-11-25",
+   "weekday": "水",
+   "theme": "world",
+   "title": "11月25日（水） 世界ニュース特集",
+   "subtitle": "世界の話題を3つ、じっくり",
+   "topics": [
+    "ホルムズ海峡、タンカーに被害",
+    "ポーランドにロシアのミサイル",
+    "ガザ、冬の雨でテントが浸水"
+   ],
+   "status": "公開OK",
+   "duration": 269.58,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 54,
+    "rechecked": 4,
+    "words": 39
+   }
+  },
+  {
    "date": "2026-11-24",
    "weekday": "火",
    "theme": "eco",
@@ -186,5 +207,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-24T04:31+09:00"
+ "updated": "2026-11-25T04:29+09:00"
 }
