@@ -1,0 +1,583 @@
+{
+ "date": "2026-11-26",
+ "theme": "ai",
+ "title": "11月26日（木） AIの回",
+ "subtitle": "＋世界の1分ニュース",
+ "chapters": [
+  {
+   "key": "op",
+   "short": "オープニング",
+   "slide": {
+    "type": "agenda",
+    "eyebrow": "11月26日（木） ・ AIの回",
+    "title": "きょうの内容",
+    "items": [
+     [
+      "AIに買い物を任せる時代へ",
+      "AI"
+     ],
+     [
+      "Anthropic株、上場価格を下回る",
+      "AI"
+     ],
+     [
+      "AIを使ったサイバー攻撃が増加",
+      "AI"
+     ],
+     [
+      "世界の1分：米国とイラン",
+      "世界"
+     ]
+    ]
+   }
+  },
+  {
+   "key": "t1",
+   "short": "AIで買い物",
+   "label": "AIに買い物を任せる時代へ",
+   "tags": [
+    "AI技術・製品"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "AI ・ 話題 1/3",
+    "title": "ウォルマート、外部のAIに買い物を開放",
+    "points": [
+     "メタのAI「Muse」が、会話の中で支払いまで",
+     "1回の買い物の上限額を決められる",
+     "アマゾンはMuseを締め出し、交渉中と報道"
+    ],
+    "src": "出典：Yahoo Finance・PPC Land（11月）"
+   },
+   "sources": [
+    {
+     "title": "Yahoo Finance　アマゾンとメタ、AIでの買い物の未来を交渉",
+     "url": "https://finance.yahoo.com/technology/article/amazon-and-meta-are-negotiating-the-future-of-ai-shopping-consumers-arent-quite-there-yet-144215428.html"
+    },
+    {
+     "title": "PPC Land　メタのMuse、ウォルマートで買い物が可能に",
+     "url": "https://ppc.land/metas-muse-ai-can-now-shop-at-walmart-but-walmart-picks-the-products/"
+    },
+    {
+     "title": "Startup Fortune　ウォルマートはAIエージェントに開放、アマゾンは締め出し",
+     "url": "https://startupfortune.com/walmart-opens-checkout-to-ai-shopping-agents-while-amazon-keeps-them-out/"
+    }
+   ]
+  },
+  {
+   "key": "t2",
+   "short": "Anthropic株",
+   "label": "Anthropic株、上場価格を下回る",
+   "tags": [
+    "AIビジネス・資金"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "AI ・ 話題 2/3",
+    "title": "Anthropic株、初めて売り出し価格の83ドルを下回る",
+    "points": [
+     "初日の最初の値段から2割以上の下落",
+     "ハイテク株安と、AI企業の価値への不安",
+     "株価を支える役目の証券会社が支えを早めに終了"
+    ],
+    "src": "出典：CNBC・Bloomberg（11月24日）"
+   },
+   "sources": [
+    {
+     "title": "CNBC（11月24日）Anthropic株、上場価格の83ドルを下回る",
+     "url": "https://www.cnbc.com/2026/11/24/anthropic-stock-ipo-price.html"
+    },
+    {
+     "title": "Bloomberg（11月24日）Anthropic株、取引4日目に上場価格割れ",
+     "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading"
+    }
+   ]
+  },
+  {
+   "key": "t3",
+   "short": "AIサイバー攻撃",
+   "label": "AIを使ったサイバー攻撃が増加",
+   "tags": [
+    "AIの安全・信頼"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "AI ・ 話題 3/3",
+    "title": "AIを使ったサイバー攻撃、9月から急増と英国が警告",
+    "points": [
+     "AIが作戦を立て、既存の道具で攻撃",
+     "狙いは昔からある弱点（弱いパスワードなど）",
+     "対策の基本は、二段階認証とパスワードの使い回し禁止"
+    ],
+    "src": "出典：英NCSC（Industrial Cyber 等の報道、11月24日）"
+   },
+   "sources": [
+    {
+     "title": "Industrial Cyber　英NCSC、AIエージェントを使った攻撃の増加を警告",
+     "url": "https://industrialcyber.co/ai/ncsc-warns-agentic-ai-frameworks-boost-cyberattacks-by-exploiting-exposed-credentials-api-flaws-security-gaps/"
+    },
+    {
+     "title": "The AI Insider（11月25日）英サイバー機関、AIによる攻撃の急増を警告",
+     "url": "https://theaiinsider.tech/2026/11/25/uk-cyber-agency-warns-of-sharp-increase-in-ai-driven-cyberattacks/"
+    }
+   ]
+  },
+  {
+   "key": "w",
+   "short": "世界の1分",
+   "label": "世界の1分：米国とイラン",
+   "tags": [
+    "国際情勢"
+   ],
+   "slide": {
+    "type": "points",
+    "eyebrow": "世界の1分",
+    "title": "米国とイランの交渉、カタールが再開を模索",
+    "points": [
+     "カタール首相が、交渉の再開に向けて仲介",
+     "イランは「条件が満たされるまで交渉しない」",
+     "ホルムズ海峡の緊張も続く"
+    ],
+    "src": "出典：AP・Iran International（11月24日）"
+   },
+   "sources": [
+    {
+     "title": "AP（WRAL掲載）イラン、7つの条件が満たされるまで米国と交渉せず",
+     "url": "https://www.wral.com/news/ap/ba01c-iran-insists-no-talks-with-the-us-until-its-7-conditions-are-met-and-other-mideast-news/"
+    },
+    {
+     "title": "Iran International（11月24日）カタール、米国とイランに緊張緩和を求める",
+     "url": "https://www.iranintl.com/en/202611244147"
+    }
+   ]
+  },
+  {
+   "key": "ed",
+   "short": "エンディング",
+   "slide": {
+    "type": "ending",
+    "eyebrow": "エンディング",
+    "title": "今日のクイズ",
+    "quiz": "ウォルマートで最初に買い物ができたのは、どの会社のAI？",
+    "next": "明日 11月27日（金）は経済の回"
+   }
+  }
+ ],
+ "lines": [
+  {
+   "chapter": "op",
+   "speaker": "sora",
+   "text": "おはようございます。11月26日、木曜日の「毎朝5分ラジオ」です。今日はAIの回です。",
+   "yomi": {
+    "今日": "きょう",
+    "5分": "ごふん"
+   }
+  },
+  {
+   "chapter": "op",
+   "speaker": "hal",
+   "text": "おはようございます、解説のハルです。今日はAIの話題を3つと、最後に「世界の1分ニュース」をお届けします。",
+   "yomi": {
+    "今日": "きょう",
+    "1分": "いっぷん"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "では早速、1つ目をお願いします。",
+   "yomi": {
+    "早速": "さっそく"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "AIに買い物を任せる時代が、近づいてきました。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "アメリカの大手スーパー、ウォルマートが、外部のAIに買い物をさせる仕組みを始めました。",
+   "yomi": {
+    "大手": "おおて"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "AIが、私の代わりに買い物をしてくれるんですか？",
+   "yomi": {
+    "私": "わたし",
+    "代わり": "かわり"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "そうです。最初に対応したのは、メタのAI「ミューズ」です。会話の中で商品を選んで、そのまま支払いまで終えられます。",
+   "yomi": {
+    "中": "なか"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "勝手に、たくさん買われたりしないんでしょうか。",
+   "yomi": {
+    "勝手": "かって"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "1回の買い物で使える金額に、上限を決められる仕組みになっているそうです。",
+   "yomi": {
+    "1回": "いっかい",
+    "上限": "じょうげん"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "それなら、少し安心ですね。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "ちょうど、年末の大きなセール「ブラックフライデー」に合わせた動きです。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "アマゾンも、同じことをしているんですか？"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "実はアマゾンは、9月からミューズが自分の店を使うのを止めていました。",
+   "yomi": {
+    "9月": "くがつ",
+    "店": "みせ"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "AIが買い物をすると、店に表示される広告を見なくなるので、広告の収入が減るのを警戒したとみられます。",
+   "yomi": {
+    "店": "みせ",
+    "収入": "しゅうにゅう"
+   }
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "でも今は、話し合いをしているんですよね。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "はい。メタとアマゾンが、ミューズをつなぐための交渉をしていると報じられています。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "AIが「お客さん」になる時代の、ルール作りが始まっています。"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "sora",
+   "text": "日本でも、こういう買い物はできるんですか？"
+  },
+  {
+   "chapter": "t1",
+   "speaker": "hal",
+   "text": "今回は、アメリカでの話です。ただ、日本の通販でも、AIに買い物を手伝わせる動きは広がっていきそうです。",
+   "yomi": {
+    "通販": "つうはん"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "2つ目は、何でしょう？",
+   "yomi": {
+    "何": "なん"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "先週、過去最大の上場で話題になったアンソロピックの株が、初めて売り出し価格を下回りました。",
+   "yomi": {
+    "先週": "せんしゅう",
+    "初めて": "はじめて"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "えっ、初日は大きく上がっていましたよね。",
+   "yomi": {
+    "初日": "しょにち"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "そうなんです。火曜日の終わりの値段は83ドルを少し下回り、初日の最初の値段からは、2割以上も下がりました。",
+   "yomi": {
+    "83ドル": "はちじゅうさんドル",
+    "初日": "しょにち",
+    "2割": "にわり"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "どうして、そんなに下がったんでしょう。"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "いくつか理由が挙げられています。ハイテク株全体が売られたことや、AIの会社の価値は高すぎるのでは、という不安です。",
+   "yomi": {
+    "全体": "ぜんたい"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "また、上場の直後に株価を支える役目をしていた証券会社が、その支えを早めに終えたことも指摘されています。",
+   "yomi": {
+    "株価": "かぶか",
+    "役目": "やくめ"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "期待が大きかった分、反動も大きいんですね。",
+   "yomi": {
+    "分": "ぶん"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "はい。それでも専門家の多くは、この先の成長に前向きな見方を続けています。",
+   "yomi": {
+    "多く": "おおく",
+    "見方": "みかた"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "新しく上場した株は、値動きが荒くなりやすいんです。",
+   "yomi": {
+    "荒く": "あらく"
+   }
+  },
+  {
+   "chapter": "t2",
+   "speaker": "sora",
+   "text": "日本の投資家にも、影響はありますか？"
+  },
+  {
+   "chapter": "t2",
+   "speaker": "hal",
+   "text": "AIの株は、日本の半導体関連の株とも連動しやすいので、東京市場でも注目されています。",
+   "yomi": {
+    "市場": "しじょう",
+    "関連": "かんれん"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "3つ目は、AIを使ったサイバー攻撃の話だそうですね。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "はい。イギリスでサイバーセキュリティーを担当する国の機関が、AIを使った攻撃が9月から大きく増えていると警告しました。",
+   "yomi": {
+    "機関": "きかん",
+    "9月": "くがつ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "AIが、自分で攻撃を考えるんですか？"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "攻撃する側は、AIに作戦を立てさせ、よく知られた道具を使って、次々に攻撃を実行させているそうです。",
+   "yomi": {
+    "側": "がわ",
+    "作戦": "さくせん"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "新しい種類の攻撃なんでしょうか。",
+   "yomi": {
+    "種類": "しゅるい"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "そこがポイントです。狙われているのは、新しい弱点ではなく、昔からある弱点だといいます。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "例えば、推測しやすいパスワードや、インターネットにむき出しになったままのシステムです。",
+   "yomi": {
+    "例えば": "たとえば",
+    "推測": "すいそく"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "人間の攻撃と、何が違うんですか？",
+   "yomi": {
+    "何": "なに"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "とにかく速く、休まずに続けられることです。"
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "見張る側も、アクセスの量だけでなく、ふるまいを見て怪しい動きを見つける必要があるとしています。",
+   "yomi": {
+    "側": "がわ",
+    "量": "りょう"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "なるほど、守る側も工夫が必要なんですね。",
+   "yomi": {
+    "側": "がわ"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "sora",
+   "text": "私たちにできることは、ありますか？",
+   "yomi": {
+    "私たち": "わたしたち"
+   }
+  },
+  {
+   "chapter": "t3",
+   "speaker": "hal",
+   "text": "基本が一番です。パスワードを使い回さず、スマホでの確認など、二段階の認証を使うことが大切です。",
+   "yomi": {
+    "基本": "きほん",
+    "一番": "いちばん",
+    "二段階": "にだんかい",
+    "認証": "にんしょう"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "sora",
+   "text": "最後は「世界の1分ニュース」です。",
+   "yomi": {
+    "1分": "いっぷん"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "アメリカとイランの戦争をめぐる話し合いです。カタールの首相が、止まっている交渉を再開させようと動いています。",
+   "yomi": {
+    "首相": "しゅしょう"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "sora",
+   "text": "イランは、話し合いに応じそうなんですか？"
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "イランの交渉責任者は、制裁の解除や海上封鎖の終了などを条件に挙げています。",
+   "yomi": {
+    "解除": "かいじょ"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "それが満たされるまで、アメリカとは交渉しないと話しています。"
+  },
+  {
+   "chapter": "w",
+   "speaker": "sora",
+   "text": "条件が多いと、なかなか進みませんね。",
+   "yomi": {
+    "多い": "おおい"
+   }
+  },
+  {
+   "chapter": "w",
+   "speaker": "hal",
+   "text": "ホルムズ海峡の緊張も続いていて、石油の値段にも響くだけに、行方が注目されます。",
+   "yomi": {
+    "行方": "ゆくえ"
+   }
+  },
+  {
+   "chapter": "ed",
+   "speaker": "sora",
+   "text": "今日のクイズです。ウォルマートの新しい仕組みで、最初に買い物ができるようになったのは、どの会社のAIでしょう？",
+   "yomi": {
+    "今日": "きょう"
+   }
+  },
+  {
+   "chapter": "ed",
+   "speaker": "hal",
+   "text": "答えは、ページの下のクイズで確かめてください。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "sora",
+   "text": "気になった話題には「興味あり」、いまいちだったら「興味なし」を押してくださいね。"
+  },
+  {
+   "chapter": "ed",
+   "speaker": "hal",
+   "text": "それではまた明日。明日、金曜日は経済の回です。",
+   "yomi": {
+    "明日": "あした"
+   }
+  }
+ ],
+ "quiz": {
+  "q": "ウォルマートの新しい仕組みで、最初に買い物ができるようになったのは、どの会社のAI？",
+  "options": [
+   "グーグル",
+   "メタ",
+   "アマゾン"
+  ],
+  "answer": 1,
+  "explain": "メタのAI「Muse（ミューズ）」が最初に対応しました。アマゾンは、Museの利用を止めていました。"
+ }
+}

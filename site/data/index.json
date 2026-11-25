@@ -1,6 +1,28 @@
 {
  "episodes": [
   {
+   "date": "2026-11-26",
+   "weekday": "木",
+   "theme": "ai",
+   "title": "11月26日（木） AIの回",
+   "subtitle": "＋世界の1分ニュース",
+   "topics": [
+    "AIに買い物を任せる時代へ",
+    "Anthropic株、上場価格を下回る",
+    "AIを使ったサイバー攻撃が増加",
+    "世界の1分：米国とイラン"
+   ],
+   "status": "公開OK",
+   "duration": 271.27,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 55,
+    "rechecked": 2,
+    "words": 51
+   }
+  },
+  {
    "date": "2026-11-25",
    "weekday": "水",
    "theme": "world",
@@ -207,5 +229,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-25T04:29+09:00"
+ "updated": "2026-11-26T04:28+09:00"
 }
