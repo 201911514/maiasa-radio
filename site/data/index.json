@@ -1,6 +1,28 @@
 {
  "episodes": [
   {
+   "date": "2026-11-27",
+   "weekday": "金",
+   "theme": "eco",
+   "title": "11月27日（金） 経済の回",
+   "subtitle": "＋世界の1分ニュース",
+   "topics": [
+    "米国、日本も含む新関税案",
+    "日経平均反発、エヌビディア報道",
+    "韓国が利上げ",
+    "世界の1分：リビア沖の攻撃"
+   ],
+   "status": "公開OK",
+   "duration": 282.73,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 55,
+    "rechecked": 0,
+    "words": 63
+   }
+  },
+  {
    "date": "2026-11-26",
    "weekday": "木",
    "theme": "ai",
@@ -229,5 +251,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-26T04:28+09:00"
+ "updated": "2026-11-27T04:28+09:00"
 }
