@@ -1,6 +1,27 @@
 {
  "episodes": [
   {
+   "date": "2026-11-28",
+   "weekday": "土",
+   "theme": "sum",
+   "title": "11月28日（土） 今週のまとめ",
+   "subtitle": "今週の話題を、もう一歩深く",
+   "topics": [
+    "エヌビディア、激動の1週間",
+    "Anthropic株、揺れた1週間",
+    "ホルムズ海峡、続く緊張"
+   ],
+   "status": "公開OK",
+   "duration": 273.83,
+   "audio": true,
+   "check": {
+    "status": "公開OK",
+    "lines": 52,
+    "rechecked": 0,
+    "words": 66
+   }
+  },
+  {
    "date": "2026-11-27",
    "weekday": "金",
    "theme": "eco",
@@ -251,5 +272,5 @@
   }
  ],
  "listen_time": "05:30",
- "updated": "2026-11-27T04:28+09:00"
+ "updated": "2026-11-28T04:28+09:00"
 }
